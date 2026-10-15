@@ -96,3 +96,5 @@ aside{overflow:visible;max-height:none;align-self:center;padding:0}aside h3{font
 
 /* Ordinary marks stay white on mobile and desktop; incorrect placements stay red. */
 .cell.mark:not(.mistake){color:#fff!important}
+
+#hint:disabled{opacity:.45;cursor:default}
