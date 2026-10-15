@@ -78,3 +78,30 @@
   .celebration-avatar { width: min(30dvh, 240px); height: min(30dvh, 240px); }
   .dance-shadow { margin-bottom: 10px; }
 }
+
+/* Fit both screens to the live viewport, including browser bars and safe areas. */
+@media(max-width:1099px){
+  body{padding-bottom:0}
+  body:not([data-mobile-view="game"]) .intro{min-height:100vh;min-height:100dvh;gap:clamp(5px,1.3dvh,12px);justify-content:space-evenly;padding:max(12px,env(safe-area-inset-top)) max(16px,env(safe-area-inset-right)) max(12px,env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left))}
+  .home-avatar{width:min(28vw,16dvh,120px);height:min(28vw,16dvh,120px);margin:0;flex-shrink:0}
+  .intro .home-title{font-size:clamp(22px,4dvh,30px);line-height:1.3}
+  .intro .home-tagline{font-size:clamp(18px,3dvh,23px);line-height:1.4}
+  .intro>p{font-size:clamp(12px,1.8dvh,15px);line-height:1.5}
+  .home-rules{padding:clamp(8px,1.5dvh,16px)}
+  .home-rules h2{margin:0 0 6px}
+  .home-rules p{margin:4px 0;line-height:1.5}
+  #mobile-begin{min-height:46px;flex-shrink:0}
+  body[data-mobile-view="game"] .game{min-height:100vh;min-height:100dvh;align-content:start;grid-template-rows:40px 32px 24px auto 52px 32px;padding-top:max(4px,env(safe-area-inset-top));padding-bottom:max(4px,env(safe-area-inset-bottom))}
+  .mobile-app-bar{height:40px}.mobile-app-bar button{height:40px}
+  .stats{height:24px}
+  .board{width:min(100%,max(80px,calc(100dvh - 216px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))));height:auto;justify-self:center;align-self:center}
+  .actions{margin:0;padding:4px 0;grid-template-columns:repeat(4,minmax(0,1fr))}
+  .actions:has(#hint[hidden]){grid-template-columns:repeat(3,minmax(0,1fr))}
+  .actions button,.actions #hint{min-height:44px;padding:2px;font-size:13px}
+  #message{min-height:0;height:32px;padding:0 4px;font-size:11px;line-height:1.4;display:flex;align-items:center;justify-content:center}
+}
+@media(max-width:1099px) and (max-height:560px){
+  .intro .home-tagline,.intro>p:not(.home-save-note){display:none}
+  .intro .home-save-note{font-size:10px}.intro .eyebrow{font-size:10px}
+  .home-rules h2{font-size:14px}.home-rules p{font-size:12px;margin:2px 0}
+}

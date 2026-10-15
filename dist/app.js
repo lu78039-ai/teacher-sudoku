@@ -34,7 +34,7 @@ function render(persist=true){
   $('#mistakes').textContent=`${mistakes} / 3`;$('#hearts').textContent='❤️'.repeat(3-mistakes)+'💔'.repeat(mistakes);
   $('#count').textContent=count+' / '+n;$('#tag').textContent=`第 ${idx+1} / ${LEVELS.length} 關`;
   if(won&&!completed.includes(idx))completed.push(idx);
-  const hint=$('#hint');hint.hidden=n<7;hint.disabled=n<7||hintsUsed>=3||won||failed;hint.textContent=`☀ 提示（${3-hintsUsed}/3）`;
+  const hint=$('#hint');hint.hidden=p.solution.length<7;hint.disabled=p.solution.length<7||hintsUsed>=3||won||failed;hint.textContent=`☀ 提示（${3-hintsUsed}/3）`;
   renderLevelPicker();
   if(renderedLevel!==idx||board.children.length!==n*n){
     board.style.gridTemplateColumns=`repeat(${n},minmax(0,1fr))`;board.style.gridTemplateRows=`repeat(${n},minmax(0,1fr))`;
@@ -68,6 +68,7 @@ function render(persist=true){
 function clearTap(){if(tapTimer!==null)clearTimeout(tapTimer);tapTimer=null;lastTap=null}
 function flushTap(){if(!lastTap)return;const tap=lastTap;clearTap();if(tap.level===idx)edit(tap.i,2)}
 function clickCell(i,e){
+  if(nativeTouchEnabled&&(e.pointerType==='touch'||e.sourceCapabilities?.firesTouchEvents))return;
   if(won||failed||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;
   if(e.detail===0){flushTap();edit(i,e.shiftKey?1:2);return}
   const now=e.timeStamp;
@@ -77,7 +78,7 @@ function clickCell(i,e){
 }
 function edit(i,m){if(won||failed)return;history.push(snapshotCells());crossingPasses[i]=0;if(m===1&&cells[i]!==1&&LEVELS[idx].solution[Math.floor(i/LEVELS[idx].n)]!==i%LEVELS[idx].n){cells[i]=3;mistakes++;failed=mistakes>=3;render();const tile=$('#board').children[i];const heart=document.createElement('span');heart.className='heartbreak';heart.textContent='💔';tile.append(heart);showMistakeFeedback();if(!failed)$('#message').textContent=`💔 這格不是班導的位置，犯錯 ${mistakes} / 3 次。`}else{cells[i]=cells[i]===m?0:m;render();}$('#board').children[i].focus({preventScroll:true})}
 function load(i){clearTap();hintsUsed=0;crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
-$('#undo').onclick=()=>{if(failed)return;clearTap();if(history.length){restoreCells(history.pop());render()}};$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(won||failed||LEVELS[idx].n<7||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];history.push(snapshotCells());cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
+$('#undo').onclick=()=>{if(failed)return;clearTap();if(history.length){restoreCells(history.pop());render()}};$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(won||failed||LEVELS[idx].solution.length<7||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];history.push(snapshotCells());cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
 
 
 // Per-cell crossing rule: preserve an existing X once, clear it on its next stroke.
@@ -98,12 +99,14 @@ function paintExcluded(indices,visited=new Set()){
   return changed;
 }
 const board=$('#board');
+const nativeTouchEnabled=typeof window!=='undefined'&&'ontouchstart' in window&&!!board.addEventListener;
 board.onpointerdown=e=>{
+  if(nativeTouchEnabled&&e.pointerType==='touch'&&!e.nativeTouch)return;
   if(won||failed||e.button!==0||e.isPrimary===false||!Number.isFinite(e.clientX)||!Number.isFinite(e.clientY))return;
   const tile=e.target.closest('.cell');if(!tile)return;
   let geometry=null;const n=LEVELS[idx].n,first=board.children[0],next=board.children[1];
   if(first?.getBoundingClientRect&&next?.getBoundingClientRect){const r=first.getBoundingClientRect(),q=next.getBoundingClientRect();const pitch=q.x-r.x;if(Number.isFinite(r.x)&&Number.isFinite(r.y)&&Number.isFinite(pitch)&&pitch>0)geometry={x:r.x,y:r.y,pitch,n}}
-  drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:+tile.dataset.index,before:snapshotCells(),active:false,changed:false,visited:new Set(),geometry};
+  drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:+tile.dataset.index,before:snapshotCells(),active:false,changed:false,visited:new Set(),geometry,nativeTouch:!!e.nativeTouch};
 };
 function pathIndex(x,y,d){
   if(d.geometry){const g=d.geometry,c=Math.floor((x-g.x)/g.pitch),r=Math.floor((y-g.y)/g.pitch);return c>=0&&r>=0&&c<g.n&&r<g.n?r*g.n+c:-1}
@@ -114,7 +117,7 @@ board.onpointermove=e=>{
   const d=drag,dx=e.clientX-d.x,dy=e.clientY-d.y;
   if(!Number.isFinite(Math.hypot(dx,dy)))return;
   if(!d.active&&Math.hypot(dx,dy)<(e.pointerType==='touch'?4:8))return;
-  if(!d.active){clearTap();d.active=true;board.setPointerCapture(e.pointerId)}
+  if(!d.active){clearTap();d.active=true;if(!d.nativeTouch)board.setPointerCapture(e.pointerId)}
   e.preventDefault();const indices=[d.start],step=d.geometry?Math.max(4,d.geometry.pitch/3):8,steps=Math.min(128,Math.max(1,Math.ceil(Math.hypot(dx,dy)/step)));
   for(let k=0;k<=steps;k++)indices.push(pathIndex(d.x+dx*k/steps,d.y+dy*k/steps,d));
   if(paintExcluded(indices,d.visited)){if(!d.changed){history.push(d.before);d.changed=true}render(false)}
@@ -125,15 +128,25 @@ function finishDrag(e,cancelled=false){
   const d=drag;drag=null;const stamp=Number.isFinite(e.timeStamp)?e.timeStamp:0;
   if(d.active){
     suppressClickUntil=stamp+350;lastTap=null;
-    if(board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);
+    if(!d.nativeTouch&&board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);
     if(d.changed)save();
   }
 }
-board.onpointerup=e=>{if(drag?.active)board.onpointermove(e);finishDrag(e)};
-board.onpointercancel=e=>finishDrag(e,true);
+board.onpointerup=e=>{if(nativeTouchEnabled&&e.pointerType==='touch'&&!e.nativeTouch)return;if(drag?.active)board.onpointermove(e);finishDrag(e)};
+board.onpointercancel=e=>{if(nativeTouchEnabled&&e.pointerType==='touch'&&!e.nativeTouch)return;finishDrag(e,true)};
 // Touch browsers implicitly capture on the pressed cell. Its bubbled loss
 // while capture transfers to the board must not terminate the active stroke.
-board.onlostpointercapture=e=>{if(e.target===board&&!board.hasPointerCapture(e.pointerId))finishDrag(e,true)};
+board.onlostpointercapture=e=>{if(!drag?.nativeTouch&&e.target===board&&!board.hasPointerCapture(e.pointerId))finishDrag(e,true)};
+
+// Native touch events avoid platform-specific pointer capture transitions.
+// Use only one input route for fingers; mouse/pen keep the pointer route.
+if(nativeTouchEnabled){
+  const adapt=(e,t)=>({button:0,isPrimary:true,pointerId:t.identifier,pointerType:'touch',nativeTouch:true,clientX:t.clientX,clientY:t.clientY,timeStamp:e.timeStamp,target:e.target,preventDefault:()=>e.preventDefault()});
+  board.addEventListener('touchstart',e=>{if(e.touches.length!==1){if(drag?.nativeTouch)finishDrag({pointerId:drag.id,timeStamp:e.timeStamp},true);e.preventDefault();return}const t=e.changedTouches[0];if(!t)return;e.preventDefault();board.onpointerdown(adapt(e,t))},{passive:false});
+  board.addEventListener('touchmove',e=>{if(!drag?.nativeTouch)return;e.preventDefault();const t=Array.from(e.touches).find(t=>t.identifier===drag.id);if(t)board.onpointermove(adapt(e,t))},{passive:false});
+  board.addEventListener('touchend',e=>{if(!drag?.nativeTouch)return;const t=Array.from(e.changedTouches).find(t=>t.identifier===drag.id);if(!t)return;e.preventDefault();const d=drag,event=adapt(e,t);if(d.active)board.onpointerup(event);else{finishDrag(event);clickCell(d.start,{detail:1,timeStamp:e.timeStamp})}},{passive:false});
+  board.addEventListener('touchcancel',e=>{if(drag?.nativeTouch){e.preventDefault();finishDrag({pointerId:drag.id,timeStamp:e.timeStamp},true)}},{passive:false});
+}
 
 function difficultyOf(i){return LEVELS[i].difficulty??Math.floor(i/6)}
 function groupLevels(d){return LEVELS.flatMap((p,i)=>difficultyOf(i)===d?[i]:[])}
