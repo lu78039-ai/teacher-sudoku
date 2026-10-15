@@ -18,7 +18,7 @@ function showMistakeFeedback(){if(errorTimer!==null)clearTimeout(errorTimer);con
 function hideCelebration(){if(celebrationTimer!==null)clearTimeout(celebrationTimer);celebrationTimer=null;$('#celebration').hidden=true;}
 function celebrate(){hideCelebration();$('#celebration-avatar').src='assets/teacher-pixel-victory.png?v=victory-1';$('#praise').textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)];$('#celebration').hidden=false;const clearedLevel=idx;celebrationTimer=setTimeout(()=>{hideCelebration();if(won&&idx===clearedLevel){if(idx<LEVELS.length-1)load(idx+1);else $('#message').textContent=`🏆 全部 ${LEVELS.length} 關完成！你是尋找班導大師！可選擇關卡再次挑戰。`}},5000);}
 const renderStats={boardBuilds:0,cellUpdates:0,pickerBuilds:0};let renderedLevel=-1,renderedValues=[],renderedBad=[],pickerVersion='',crossingPasses=[];
-const $=s=>document.querySelector(s),colors=['#9bcce9','#f291bc','#f5d35d','#78d4d3','#ac94e5','#a3d989','#ffb77c','#77bca0','#cc9b78','#aab9ec'];let drag=null,suppressClickUntil=-1;let lastTap=null,tapTimer=null;let hintsUsed=0;let idx=0,mode=1,cells=[],history=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
+const $=s=>document.querySelector(s),colors=['#9bcce9','#f291bc','#f5d35d','#78d4d3','#ac94e5','#a3d989','#ffb77c','#77bca0','#cc9b78','#aab9ec'];let drag=null,suppressClickUntil=-1;let lastTap=null;let hintsUsed=0;let idx=0,mode=1,cells=[],history=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
 try{const s=JSON.parse(localStorage.getItem('find-homeroom-teacher')||localStorage.getItem('woof-sudoku'));if(s&&Number.isInteger(s.idx)&&LEVELS[s.idx]){idx=s.idx;hintsUsed=Number.isInteger(s.hintsUsed)?Math.max(0,Math.min(3,s.hintsUsed)):0;mistakes=Number.isInteger(s.mistakes)?Math.max(0,Math.min(3,s.mistakes)):0;failed=mistakes>=3;if(Array.isArray(s.cells)&&s.cells.length===LEVELS[idx].n**2&&s.cells.every(v=>[0,1,2,3].includes(v)))cells=s.cells;seconds=Number.isFinite(s.seconds)?Math.max(0,s.seconds):0;completed=Array.isArray(s.completed)?s.completed:[]}}catch{}
 // Revalidate old saves: earlier versions allowed teachers outside the unique solution.
 let restoredErrors=0;
@@ -64,17 +64,16 @@ function render(persist=true){
   board.dataset.buildCount=String(renderStats.boardBuilds);board.dataset.cellUpdates=String(renderStats.cellUpdates);
   if(typeof performance!=='undefined')board.dataset.renderMs=(performance.now()-started).toFixed(3);
 }
-// Delay only a single tap so a double tap never paints a temporary X.
-function clearTap(){if(tapTimer!==null)clearTimeout(tapTimer);tapTimer=null;lastTap=null}
-function flushTap(){if(!lastTap)return;const tap=lastTap;clearTap();if(tap.level===idx)edit(tap.i,2)}
+// Single taps update immediately; a second tap replaces that edit atomically.
+function clearTap(){lastTap=null}
+function flushTap(){clearTap()}
 function clickCell(i,e){
   if(nativeTouchEnabled&&(e.pointerType==='touch'||e.sourceCapabilities?.firesTouchEvents))return;
   if(won||failed||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;
   if(e.detail===0){flushTap();edit(i,e.shiftKey?1:2);return}
   const now=e.timeStamp;
-  if(lastTap&&lastTap.i===i&&now-lastTap.time<=300){clearTap();edit(i,1);return}
-  flushTap();const tap={i,time:now,level:idx};lastTap=tap;
-  tapTimer=setTimeout(()=>{if(lastTap===tap)flushTap()},300);
+  if(lastTap&&lastTap.i===i&&now-lastTap.time<=300){const before=lastTap.before;clearTap();restoreCells(before);history.pop();edit(i,1);return}
+  clearTap();const before=snapshotCells();edit(i,2);lastTap={i,time:now,level:idx,before};
 }
 function edit(i,m){if(won||failed)return;history.push(snapshotCells());crossingPasses[i]=0;if(m===1&&cells[i]!==1&&LEVELS[idx].solution[Math.floor(i/LEVELS[idx].n)]!==i%LEVELS[idx].n){cells[i]=3;mistakes++;failed=mistakes>=3;render();const tile=$('#board').children[i];const heart=document.createElement('span');heart.className='heartbreak';heart.textContent='💔';tile.append(heart);showMistakeFeedback();if(!failed)$('#message').textContent=`💔 這格不是班導的位置，犯錯 ${mistakes} / 3 次。`}else{cells[i]=cells[i]===m?0:m;render();}$('#board').children[i].focus({preventScroll:true})}
 function load(i){clearTap();hintsUsed=0;crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}

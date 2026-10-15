@@ -41,9 +41,9 @@ run('load(0);var hitCount=0;document.elementFromPoint=()=>{hitCount++;return nul
 run('load(0);document.elementFromPoint=(x,y)=>({closest:()=>({dataset:{index:Math.floor(y/40)*LEVELS[idx].n+Math.floor(x/40)}})});board.setPointerCapture=id=>board.onlostpointercapture({pointerId:id,target:board.children[0],timeStamp:100});');
 stroke([0,1,2,3,4],120000);assert.equal(run('cells.slice(0,5).join()'),'2,2,2,2,2');assert.equal(run('drag'),null);
 console.log('PASS: bubbled lost capture from a touched cell does not terminate the swipe.');
-run('load(0);clickCell(4,{detail:1,timeStamp:200000})');assert.equal(run('cells[4]'),0);assert.equal(run('history.length'),0);run('clickCell(4,{detail:2,timeStamp:200100})');assert.equal(run('cells[4]'),1);assert.equal(run('history.length'),1);assert.equal(run('lastTap'),null);
+run('load(0);clickCell(4,{detail:1,timeStamp:200000})');assert.equal(run('cells[4]'),2);assert.equal(run('history.length'),1);run('clickCell(4,{detail:2,timeStamp:200100})');assert.equal(run('cells[4]'),1);assert.equal(run('history.length'),1);assert.equal(run('lastTap'),null);
 run('load(0);clickCell(0,{detail:1,timeStamp:210000});flushTap()');assert.equal(run('cells[0]'),2);run('clickCell(0,{detail:1,timeStamp:211000});flushTap()');assert.equal(run('cells[0]'),0);
 run('clickCell(0,{detail:1,timeStamp:212000});load(1);flushTap()');assert.equal(run('cells[0]'),0);
-console.log('PASS: double tap never paints X, single tap toggles once, level changes cancel pending taps.');
+console.log('PASS: single tap paints X immediately, double tap replaces the first edit with one undo entry, level changes reset tap recognition.');
 for(const n of [5,6,7,8,9,10]){run(`load(LEVELS.findIndex(p=>p.n===${n}))`);for(let k=0;k<5;k++)run('applyHint()');assert.equal(run('hintsUsed'),n<7?0:3);assert.equal(run('cells.filter(v=>v===1).length'),n<7?0:3);assert.equal(nodes.get('#hint').hidden,n<7);assert.equal(nodes.get('#hint').disabled,true);if(n>=7){run("$('#undo').onclick();applyHint()");assert.equal(run('hintsUsed'),3);assert.equal(run('cells.filter(v=>v===1).length'),2);assert.equal(JSON.parse(storage.get('find-homeroom-teacher')).hintsUsed,3)}}
 console.log('PASS: hints hidden below 7x7, limited to three on 7x7–10x10, saved and not refunded by undo.');
