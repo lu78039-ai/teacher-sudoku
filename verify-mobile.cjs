@@ -33,7 +33,7 @@ assert.equal(run('idx'),20);assert.equal(run('cells[0]'),2);
 run("$('#mobile-begin').onclick();$('#mobile-settings').onclick()");assert.equal(run("$('#mobile-settings-dialog').open"),true);
 run("$('#settings-rules').onclick()");assert.equal(run("$('#rules').open"),true);assert.equal(run("$('#mobile-settings-dialog').open"),false);
 run("$('#mobile-motion').checked=true;$('#mobile-motion').onchange()");assert.equal(storage.get('teacher-reduced-motion'),'true');
-for (const n of [5,6,7,8,9]) {
+for (const n of [5,6,7,8,9,10]) {
   run(`load(LEVELS.findIndex(p=>p.n===${n}));cells[LEVELS[idx].solution[0]]=1;render();`);
   const before=run('JSON.stringify(cells)');
   run(`board.onpointerdown({button:0,isPrimary:true,pointerId:1,pointerType:'touch',clientX:20,clientY:20,target:{closest:()=>({dataset:{index:0}})}});
@@ -45,5 +45,5 @@ for (const n of [5,6,7,8,9]) {
   assert.equal(run('history.length'),1);
   run("$('#undo').onclick()");assert.equal(run('JSON.stringify(cells)'),before);
 }
-assert.equal(require('node:crypto').createHash('sha256').update(fs.readFileSync('dist/levels.js')).digest('hex'),'e930e1f2e87ac42b8660f4fbc24177e5c74080dae19e69d5098d995ccab7018d');
-console.log('PASS: mobile navigation preserves progress, home pauses timer, settings/rules work, touch swipes and atomic undo for 5x5–9x9, original puzzle data unchanged.');
+assert.equal(require('node:crypto').createHash('sha256').update(run("'const LEVELS='+JSON.stringify(LEVELS.slice(0,148))+';'")).digest('hex'),'e930e1f2e87ac42b8660f4fbc24177e5c74080dae19e69d5098d995ccab7018d');
+console.log('PASS: mobile navigation preserves progress, home pauses timer, settings/rules work, touch swipes and atomic undo for 5x5–10x10, original 148 puzzles unchanged.');

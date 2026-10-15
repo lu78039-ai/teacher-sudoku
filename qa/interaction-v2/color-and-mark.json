@@ -1,0 +1,19 @@
+{
+  "viewport": "390x844",
+  "before": {
+    "background": "rgb(155, 204, 233)",
+    "filter": "none"
+  },
+  "after": {
+    "background": "rgb(155, 204, 233)",
+    "filter": "none",
+    "imageBackground": "rgba(0, 0, 0, 0)"
+  },
+  "rounded": {
+    "cellWidth": 71.67682647705078,
+    "fontSize": "0px",
+    "height": "6.3313px",
+    "radius": "999px",
+    "width": "43.628px"
+  }
+}

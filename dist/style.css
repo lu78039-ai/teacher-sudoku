@@ -83,3 +83,13 @@ aside{overflow:visible;max-height:none;align-self:center;padding:0}aside h3{font
 #hint[hidden]{display:none!important}
 
 .celebration-avatar{width:clamp(140px,34dvh,480px);height:clamp(140px,34dvh,480px);max-width:100%;object-fit:contain}.dancing-teacher{margin:8px auto;transform-origin:50% 75%}.celebration-card{max-height:94dvh}.party-sparkles{line-height:1.2}
+
+/* Stable region colors and rounded exclusion strokes on all input types. */
+.cell{appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;transition:none;background-color:var(--region-color)!important;opacity:1;isolation:isolate}
+.cell:hover,.cell:active,.cell:focus,.cell:focus-visible{filter:none;background-color:var(--region-color)!important;opacity:1}
+.cell.mark{font-size:0!important;color:#fff;text-shadow:none;--mark-size:62%}
+.cell.mark::before,.cell.mark::after{content:'';position:absolute;left:50%;top:50%;width:var(--mark-size);height:clamp(3px,9%,12px);border-radius:999px;background:currentColor;pointer-events:none}
+.cell.mark::before{transform:translate(-50%,-50%) rotate(45deg)}
+.cell.mark::after{transform:translate(-50%,-50%) rotate(-45deg)}
+.cell.mark.mistake{color:#d71946!important}
+.cell .teacher-avatar{background:transparent;pointer-events:none}

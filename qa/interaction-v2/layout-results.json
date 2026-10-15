@@ -1,0 +1,202 @@
+[
+  {
+    "allColorsPresent": true,
+    "boardHeight": 344.3292541503906,
+    "boardWidth": 344.3292541503906,
+    "height": 800,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 25,
+    "width": 360
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 344.3292541503906,
+    "boardWidth": 344.3292541503906,
+    "height": 800,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 36,
+    "width": 360
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 344.3292541503906,
+    "boardWidth": 344.3292541503906,
+    "height": 800,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 49,
+    "width": 360
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 344.3292541503906,
+    "boardWidth": 344.3292541503906,
+    "height": 800,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 64,
+    "width": 360
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 344.3292541503906,
+    "boardWidth": 344.3292541503906,
+    "height": 800,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 81,
+    "width": 360
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 344.3292541503906,
+    "boardWidth": 344.3292541503906,
+    "height": 800,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 100,
+    "width": 360
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 374.2479553222656,
+    "boardWidth": 374.2479553222656,
+    "height": 844,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 25,
+    "width": 390
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 374.2479553222656,
+    "boardWidth": 374.2479553222656,
+    "height": 844,
+    "maxCellError": 0,
+    "noOverflow": true,
+    "tiles": 36,
+    "width": 390
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 374.2479553222656,
+    "boardWidth": 374.2479553222656,
+    "height": 844,
+    "maxCellError": 0,
+    "noOverflow": true,
+    "tiles": 49,
+    "width": 390
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 374.2479553222656,
+    "boardWidth": 374.2479553222656,
+    "height": 844,
+    "maxCellError": 0.010166168212890623,
+    "noOverflow": true,
+    "tiles": 64,
+    "width": 390
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 374.2479553222656,
+    "boardWidth": 374.2479553222656,
+    "height": 844,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 81,
+    "width": 390
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 374.2479553222656,
+    "boardWidth": 374.2479553222656,
+    "height": 844,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 100,
+    "width": 390
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 396.3617858886719,
+    "boardWidth": 396.3617858886719,
+    "height": 915,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 25,
+    "width": 412
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 396.3617858886719,
+    "boardWidth": 396.3617858886719,
+    "height": 915,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 36,
+    "width": 412
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 396.3617858886719,
+    "boardWidth": 396.3617858886719,
+    "height": 915,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 49,
+    "width": 412
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 396.3617858886719,
+    "boardWidth": 396.3617858886719,
+    "height": 915,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 64,
+    "width": 412
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 396.3617858886719,
+    "boardWidth": 396.3617858886719,
+    "height": 915,
+    "maxCellError": 0,
+    "noOverflow": true,
+    "tiles": 81,
+    "width": 412
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 396.3617858886719,
+    "boardWidth": 396.3617858886719,
+    "height": 915,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 100,
+    "width": 412
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 885.86376953125,
+    "boardWidth": 885.86376953125,
+    "height": 1080,
+    "maxCellError": 0.010162353515625,
+    "noOverflow": true,
+    "tiles": 100,
+    "width": 1920
+  },
+  {
+    "allColorsPresent": true,
+    "boardHeight": 1679.9998779296875,
+    "boardWidth": 1679.9998779296875,
+    "height": 2160,
+    "maxCellError": 0,
+    "noOverflow": true,
+    "tiles": 100,
+    "width": 3840
+  }
+]
