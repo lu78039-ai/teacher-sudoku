@@ -17,7 +17,7 @@ let celebrationTimer=null,celebrationReady=false,errorTimer=null;
 function showMistakeFeedback(){if(errorTimer!==null)clearTimeout(errorTimer);const feedback=$('#error-feedback');feedback.hidden=false;feedback.replaceChildren();const heart=document.createElement('span');heart.className='error-heart';heart.textContent='💔';feedback.append(heart);errorTimer=setTimeout(()=>{feedback.hidden=true;errorTimer=null},2000);}
 function hideCelebration(){if(celebrationTimer!==null)clearTimeout(celebrationTimer);celebrationTimer=null;$('#celebration').hidden=true;}
 function celebrate(){hideCelebration();$('#celebration-avatar').src='assets/teacher-pixel-victory.png?v=victory-1';$('#praise').textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)];$('#celebration').hidden=false;const clearedLevel=idx;celebrationTimer=setTimeout(()=>{hideCelebration();if(won&&idx===clearedLevel){if(idx<LEVELS.length-1)load(idx+1);else $('#message').textContent=`🏆 全部 ${LEVELS.length} 關完成！你是尋找班導大師！可選擇關卡再次挑戰。`}},5000);}
-const renderStats={boardBuilds:0,cellUpdates:0,pickerBuilds:0};let renderedLevel=-1,renderedValues=[],renderedBad=[],pickerVersion='',lastStroke=null;
+const renderStats={boardBuilds:0,cellUpdates:0,pickerBuilds:0};let renderedLevel=-1,renderedValues=[],renderedBad=[],pickerVersion='',crossingPasses=[];
 const $=s=>document.querySelector(s),colors=['#9bcce9','#f291bc','#f5d35d','#78d4d3','#ac94e5','#a3d989','#ffb77c','#77bca0','#cc9b78','#aab9ec'];let drag=null,suppressClickUntil=-1;let lastTap=null;let idx=0,mode=1,cells=[],history=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
 try{const s=JSON.parse(localStorage.getItem('find-homeroom-teacher')||localStorage.getItem('woof-sudoku'));if(s&&Number.isInteger(s.idx)&&LEVELS[s.idx]){idx=s.idx;mistakes=Number.isInteger(s.mistakes)?Math.max(0,Math.min(3,s.mistakes)):0;failed=mistakes>=3;if(Array.isArray(s.cells)&&s.cells.length===LEVELS[idx].n**2&&s.cells.every(v=>[0,1,2,3].includes(v)))cells=s.cells;seconds=Number.isFinite(s.seconds)?Math.max(0,s.seconds):0;completed=Array.isArray(s.completed)?s.completed:[]}}catch{}
 // Revalidate old saves: earlier versions allowed teachers outside the unique solution.
@@ -42,7 +42,7 @@ function render(persist=true){
       const b=document.createElement('button');b.type='button';b.dataset.index=i;
       b.style.background=colors[p.regions[i]];b.style.setProperty?.('--region-color',colors[p.regions[i]]);
       b.onclick=e=>clickCell(i,e);b.ondblclick=e=>e.preventDefault();
-      b.oncontextmenu=e=>{e.preventDefault();if(drag)return;lastTap=null;lastStroke=null;edit(i,2)};
+      b.oncontextmenu=e=>{e.preventDefault();if(drag)return;lastTap=null;edit(i,2)};
       b.onkeydown=e=>{const delta={ArrowRight:1,ArrowLeft:-1,ArrowDown:n,ArrowUp:-n}[e.key];if(delta!==undefined){e.preventDefault();board.children[Math.max(0,Math.min(cells.length-1,i+delta))].focus({preventScroll:true})}};
       board.append(b);
     }
@@ -63,62 +63,56 @@ function render(persist=true){
   board.dataset.buildCount=String(renderStats.boardBuilds);board.dataset.cellUpdates=String(renderStats.cellUpdates);
   if(typeof performance!=='undefined')board.dataset.renderMs=(performance.now()-started).toFixed(3);
 }
-function clickCell(i,e){if(won||failed||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;lastStroke=null;if(e.detail===0){lastTap=null;edit(i,e.shiftKey?1:2);return}const now=e.timeStamp;if(lastTap&&lastTap.i===i&&now-lastTap.time<=350){cells=lastTap.before;history.pop();lastTap=null;edit(i,1)}else{const before=[...cells];edit(i,2);lastTap={i,time:now,before}}}
-function edit(i,m){if(won||failed)return;history.push([...cells]);if(m===1&&cells[i]!==1&&LEVELS[idx].solution[Math.floor(i/LEVELS[idx].n)]!==i%LEVELS[idx].n){cells[i]=3;mistakes++;failed=mistakes>=3;render();const tile=$('#board').children[i];const heart=document.createElement('span');heart.className='heartbreak';heart.textContent='💔';tile.append(heart);showMistakeFeedback();if(!failed)$('#message').textContent=`💔 這格不是班導的位置，犯錯 ${mistakes} / 3 次。`}else{cells[i]=cells[i]===m?0:m;render();}$('#board').children[i].focus({preventScroll:true})}
-function load(i){lastStroke=null;failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
-$('#undo').onclick=()=>{if(failed)return;lastTap=null;lastStroke=null;if(history.length){cells=history.pop();render()}};$('#reset').onclick=()=>load(idx);function applyHint(){lastTap=null;if(won||failed)return;let p=LEVELS[idx],wrong=cells.findIndex((v,i)=>v===1&&p.solution[Math.floor(i/p.n)]!==i%p.n);history.push([...cells]);if(wrong>=0){cells[wrong]=2;render();$('#message').textContent='☀ 這個位置不適合班導，已替你做上排除記號。';return}let r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r>=0){let i=r*p.n+p.solution[r];cells[i]=1;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！`}};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
+function clickCell(i,e){if(won||failed||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;if(e.detail===0){lastTap=null;edit(i,e.shiftKey?1:2);return}const now=e.timeStamp;if(lastTap&&lastTap.i===i&&now-lastTap.time<=350){restoreCells(lastTap.before);history.pop();lastTap=null;edit(i,1)}else{const before=snapshotCells();edit(i,2);lastTap={i,time:now,before}}}
+function edit(i,m){if(won||failed)return;history.push(snapshotCells());crossingPasses[i]=0;if(m===1&&cells[i]!==1&&LEVELS[idx].solution[Math.floor(i/LEVELS[idx].n)]!==i%LEVELS[idx].n){cells[i]=3;mistakes++;failed=mistakes>=3;render();const tile=$('#board').children[i];const heart=document.createElement('span');heart.className='heartbreak';heart.textContent='💔';tile.append(heart);showMistakeFeedback();if(!failed)$('#message').textContent=`💔 這格不是班導的位置，犯錯 ${mistakes} / 3 次。`}else{cells[i]=cells[i]===m?0:m;render();}$('#board').children[i].focus({preventScroll:true})}
+function load(i){crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
+$('#undo').onclick=()=>{if(failed)return;lastTap=null;if(history.length){restoreCells(history.pop());render()}};$('#reset').onclick=()=>load(idx);function applyHint(){lastTap=null;if(won||failed)return;let p=LEVELS[idx],wrong=cells.findIndex((v,i)=>v===1&&p.solution[Math.floor(i/p.n)]!==i%p.n);history.push(snapshotCells());if(wrong>=0){cells[wrong]=2;render();$('#message').textContent='☀ 這個位置不適合班導，已替你做上排除記號。';return}let r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r>=0){let i=r*p.n+p.solution[r];cells[i]=1;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！`}};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
 
 
-// Mark first; only a deliberate hold or a repeated matching stroke erases existing marks.
-function paintExcluded(indices,visited=new Set(),intent='mark'){
+// Per-cell crossing rule: preserve an existing X once, clear it on its next stroke.
+function snapshotCells(){const state=[...cells];state.crossings=[...crossingPasses];return state}
+function restoreCells(state){cells=[...state];crossingPasses=state.crossings?[...state.crossings]:[]}
+function paintExcluded(indices,visited=new Set()){
   let changed=false;
   for(const i of indices){
     if(!Number.isInteger(i)||i<0||i>=cells.length||visited.has(i))continue;
     visited.add(i);
-    if(intent==='erase'&&cells[i]===2){cells[i]=0;changed=true}
-    else if(intent==='mark'&&cells[i]===0){cells[i]=2;changed=true}
+    if(cells[i]===0){cells[i]=2;crossingPasses[i]=0;changed=true}
+    else if(cells[i]===2){
+      if(crossingPasses[i]===1){cells[i]=0;crossingPasses[i]=0}
+      else crossingPasses[i]=1;
+      changed=true;
+    }
   }
   return changed;
 }
-function repeatedStroke(previous,current,before,stamp){
-  if(!previous||stamp-previous.time<0||stamp-previous.time>2500||current.length<2)return false;
-  if(!current.every(i=>before[i]===2))return false;
-  const a=new Set(previous.indices),b=new Set(current),overlap=[...b].filter(i=>a.has(i)).length;
-  return overlap/Math.max(a.size,b.size)>=.8;
-}
 const board=$('#board');
 board.onpointerdown=e=>{
-  if(won||failed||e.button!==0||e.isPrimary===false)return;
+  if(won||failed||e.button!==0||e.isPrimary===false||!Number.isFinite(e.clientX)||!Number.isFinite(e.clientY))return;
   const tile=e.target.closest('.cell');if(!tile)return;
   let geometry=null;const n=LEVELS[idx].n,first=board.children[0],next=board.children[1];
-  if(first?.getBoundingClientRect&&next?.getBoundingClientRect){const r=first.getBoundingClientRect(),q=next.getBoundingClientRect();geometry={x:r.x,y:r.y,pitch:q.x-r.x,n}}
-  drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:+tile.dataset.index,before:[...cells],active:false,changed:false,visited:new Set(),geometry,downTime:e.timeStamp??0,intent:'mark'};
+  if(first?.getBoundingClientRect&&next?.getBoundingClientRect){const r=first.getBoundingClientRect(),q=next.getBoundingClientRect();const pitch=q.x-r.x;if(Number.isFinite(r.x)&&Number.isFinite(r.y)&&Number.isFinite(pitch)&&pitch>0)geometry={x:r.x,y:r.y,pitch,n}}
+  drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:+tile.dataset.index,before:snapshotCells(),active:false,changed:false,visited:new Set(),geometry};
 };
 function pathIndex(x,y,d){
   if(d.geometry){const g=d.geometry,c=Math.floor((x-g.x)/g.pitch),r=Math.floor((y-g.y)/g.pitch);return c>=0&&r>=0&&c<g.n&&r<g.n?r*g.n+c:-1}
   const tile=document.elementFromPoint(x,y)?.closest('.cell');return tile&&board.contains(tile)?+tile.dataset.index:-1;
 }
 board.onpointermove=e=>{
-  if(!drag||drag.id!==e.pointerId)return;
+  if(!drag||drag.id!==e.pointerId||!Number.isFinite(e.clientX)||!Number.isFinite(e.clientY))return;
   const d=drag,dx=e.clientX-d.x,dy=e.clientY-d.y;
+  if(!Number.isFinite(Math.hypot(dx,dy)))return;
   if(!d.active&&Math.hypot(dx,dy)<(e.pointerType==='touch'?4:8))return;
-  if(!d.active){d.active=true;lastTap=null;if(d.before[d.start]===2&&(e.timeStamp??0)-d.downTime>=450)d.intent='erase';board.setPointerCapture(e.pointerId)}
-  e.preventDefault();const indices=[d.start],step=d.geometry?Math.max(4,d.geometry.pitch/3):8,steps=Math.max(1,Math.ceil(Math.hypot(dx,dy)/step));
+  if(!d.active){d.active=true;lastTap=null;board.setPointerCapture(e.pointerId)}
+  e.preventDefault();const indices=[d.start],step=d.geometry?Math.max(4,d.geometry.pitch/3):8,steps=Math.min(128,Math.max(1,Math.ceil(Math.hypot(dx,dy)/step)));
   for(let k=0;k<=steps;k++)indices.push(pathIndex(d.x+dx*k/steps,d.y+dy*k/steps,d));
-  if(paintExcluded(indices,d.visited,d.intent)){if(!d.changed){history.push(d.before);d.changed=true}render(false)}
+  if(paintExcluded(indices,d.visited)){if(!d.changed){history.push(d.before);d.changed=true}render(false)}
   d.x=e.clientX;d.y=e.clientY;
 };
 function finishDrag(e,cancelled=false){
   if(!drag||drag.id!==e.pointerId)return;
-  const d=drag;drag=null;
+  const d=drag;drag=null;const stamp=Number.isFinite(e.timeStamp)?e.timeStamp:0;
   if(d.active){
-    const indices=[...d.visited].filter(i=>d.before[i]===0||d.before[i]===2),stamp=e.timeStamp??0;
-    if(!cancelled&&d.intent==='mark'&&repeatedStroke(lastStroke,indices,d.before,stamp)){
-      if(!d.changed){history.push(d.before);d.changed=true}
-      for(const i of indices)if(cells[i]===2)cells[i]=0;
-      d.intent='erase';render(false);
-    }
-    lastStroke=cancelled||d.intent==='erase'?null:{indices,time:stamp};
     suppressClickUntil=stamp+350;lastTap=null;
     if(board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);
     if(d.changed)save();

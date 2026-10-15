@@ -87,9 +87,12 @@ aside{overflow:visible;max-height:none;align-self:center;padding:0}aside h3{font
 /* Stable region colors and rounded exclusion strokes on all input types. */
 .cell{appearance:none;-webkit-appearance:none;-webkit-tap-highlight-color:transparent;transition:none;background-color:var(--region-color)!important;opacity:1;isolation:isolate}
 .cell:hover,.cell:active,.cell:focus,.cell:focus-visible{filter:none;background-color:var(--region-color)!important;opacity:1}
-.cell.mark{font-size:0!important;color:#fff;text-shadow:none;--mark-size:62%}
-.cell.mark::before,.cell.mark::after{content:'';position:absolute;left:50%;top:50%;width:var(--mark-size);height:clamp(3px,9%,12px);border-radius:999px;background:currentColor;pointer-events:none}
+.cell.mark{font-size:0!important;color:#fff;text-shadow:none;--mark-size:64%}
+.cell.mark::before,.cell.mark::after{content:'';position:absolute;left:50%;top:50%;width:var(--mark-size);height:clamp(4px,12%,18px);border-radius:999px;background:currentColor;pointer-events:none}
 .cell.mark::before{transform:translate(-50%,-50%) rotate(45deg)}
 .cell.mark::after{transform:translate(-50%,-50%) rotate(-45deg)}
 .cell.mark.mistake{color:#d71946!important}
 .cell .teacher-avatar{background:transparent;pointer-events:none}
+
+/* Ordinary marks stay white on mobile and desktop; incorrect placements stay red. */
+.cell.mark:not(.mistake){color:#fff!important}

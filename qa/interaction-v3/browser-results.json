@@ -1,0 +1,22 @@
+{
+  "firstCrossing": "existing X preserved",
+  "secondCrossing": "different horizontal path cleared same X",
+  "teacher": "preserved",
+  "phone": {
+    "width": 390,
+    "height": 844,
+    "mark": {
+      "background": "rgb(255, 255, 255)",
+      "color": "rgb(255, 255, 255)",
+      "radius": "999px",
+      "stroke": "8.44512px"
+    }
+  },
+  "desktop": {
+    "width": 1920,
+    "height": 1080,
+    "boardWidth": 885.86376953125,
+    "boardHeight": 885.86376953125,
+    "horizontalOverflow": false
+  }
+}

@@ -15,10 +15,10 @@ function stroke(indices,t,hold=0,cancel=false){
 }
 run('load(0)');stroke([0,1,2],1000);assert.equal(run('cells.slice(0,3).join()'),'2,2,2');
 stroke([1,6,11],1500);assert.equal(run('cells[1]'),2);assert.equal(run('cells[6]'),2);assert.equal(run('cells[11]'),2);
-stroke([1,6,11],1900);assert.equal(run('[cells[1],cells[6],cells[11]].join()'),'0,0,0');
-run('cells[0]=2;cells[1]=2;render()');stroke([0,1],4000,500);assert.equal(run('cells.slice(0,2).join()'),'0,0');
+stroke([1,6,11],1900);assert.equal(run('[cells[1],cells[6],cells[11]].join()'),'0,2,2');
+run('load(0);cells[0]=2;cells[1]=2;render()');stroke([0,1],4000,500);assert.equal(run('cells.slice(0,2).join()'),'2,2');stroke([0,1],50000);assert.equal(run('cells.slice(0,2).join()'),'0,0');run("$('#undo').onclick()");assert.equal(run('cells.slice(0,2).join()'),'2,2');stroke([0,1],90000);assert.equal(run('cells.slice(0,2).join()'),'0,0');
 run('load(0)');stroke([0,1,2],1000);stroke([0,1,2],5000);assert.equal(run('cells.slice(0,3).join()'),'2,2,2');
-stroke([0,1,2],5300,0,true);assert.equal(run('cells.slice(0,3).join()'),'2,2,2');
+stroke([0,1,2],5300,0,true);assert.equal(run('cells.slice(0,3).join()'),'0,0,0');
 run('load(0)');const before=run('JSON.stringify(cells)'),writesBefore=writes;
 stroke([0,1,2,1,0],10000);assert.equal(run('cells.slice(0,3).join()'),'2,2,2');assert.equal(writes-writesBefore,1);
 run("$('#undo').onclick()");assert.equal(run('JSON.stringify(cells)'),before);
@@ -30,7 +30,9 @@ assert.equal(created,createdBefore);assert.ok(tiles.every((tile,i)=>tile===nodes
 run('load(0)');const correct=run('LEVELS[0].solution[0]'),color=nodes.get('#board').children[correct].style.background;
 run(`edit(${correct},1)`);assert.equal(nodes.get('#board').children[correct].style.background,color);
 const sizes=run('Array.from({length:10},(_,z)=>LEVELS[148].regions.filter(v=>v===z).length)');assert.ok(sizes.filter(n=>n===1).length>=2);
-console.log('PASS: crossings preserve X, matching second stroke erases, stale strokes do not erase, long-hold erases, cancel is safe, one save per stroke, atomic undo.');
+console.log('PASS: crossings preserve X, per-cell second crossing erases regardless of path/time, long-hold preserves first crossing, cancel is safe, one save per stroke, atomic undo.');
 console.log('PASS: 100 clicks create zero new DOM nodes, keep board/options identity, preserve teacher-cell color, and accept multiple singleton regions on 10x10.');
 
 run('load(0);cells[0]=2;render();board.onpointerdown({button:0,isPrimary:true,pointerId:3,pointerType:"touch",clientX:20,clientY:20,timeStamp:100,target:{closest:()=>({dataset:{index:0}})}});board.children[0].oncontextmenu({preventDefault(){}})');assert.equal(run('cells[0]'),2);assert.equal(run('history.length'),0);console.log('PASS: touch long-press context menu does not cause an extra toggle or undo entry.');
+
+run('load(0);var hitCount=0;document.elementFromPoint=()=>{hitCount++;return null};board.onpointerdown({button:0,isPrimary:true,pointerId:8,clientX:20,clientY:20,target:{closest:()=>({dataset:{index:0}})}});board.onpointermove({pointerId:8,pointerType:"touch",clientX:Infinity,clientY:20,preventDefault(){}})');assert.equal(run('hitCount'),0);run('board.onpointermove({pointerId:8,pointerType:"touch",clientX:1e100,clientY:20,preventDefault(){}})');assert.ok(run('hitCount')<=129);run('board.onpointercancel({pointerId:8,timeStamp:100})');console.log('PASS: non-finite coordinates ignored; extreme pointer movement bounded to 129 hit tests.');
