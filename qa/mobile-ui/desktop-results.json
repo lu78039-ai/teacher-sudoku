@@ -1,0 +1,38 @@
+[
+  {
+    "appBarHidden": true,
+    "board": {
+      "h": 885.86376953125,
+      "w": 885.86376953125,
+      "x": 517.06298828125,
+      "y": 43.21138000488281
+    },
+    "cellError": 0.010162353515625,
+    "homeHidden": true,
+    "left": true,
+    "noHorizontalOverflow": true,
+    "right": true,
+    "viewport": [
+      1920,
+      1080
+    ]
+  },
+  {
+    "appBarHidden": true,
+    "board": {
+      "h": 1679.9998779296875,
+      "w": 1679.9998779296875,
+      "x": 1079.98974609375,
+      "y": 86.39227294921875
+    },
+    "cellError": 0.010162353515625,
+    "homeHidden": true,
+    "left": true,
+    "noHorizontalOverflow": true,
+    "right": true,
+    "viewport": [
+      3840,
+      2160
+    ]
+  }
+]

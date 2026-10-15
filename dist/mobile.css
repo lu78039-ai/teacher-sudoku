@@ -1,0 +1,80 @@
+/* Mobile App UI V1.0. All desktop styles stay in style.css. */
+.mobile-only, .mobile-home-only { display: none; }
+.motion-setting { display: flex; gap: 12px; align-items: center; min-height: 48px; }
+.motion-setting input { width: 22px; height: 22px; }
+.reduced-motion .dancing-teacher, .reduced-motion .dance-shadow,
+.reduced-motion .heartbreak, .reduced-motion .error-heart,
+.reduced-motion .failure-symbol { animation: none !important; }
+@media (max-width: 1099px) {
+  :root { background: #f8f6ef; }
+  body { padding-bottom: env(safe-area-inset-bottom, 0px); }
+  main { display: block; width: 100%; max-width: 600px; height: auto; margin: 0 auto; padding: 0; }
+  .intro, .game, aside, footer { display: none; }
+  body:not([data-mobile-view="game"]) .intro {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 16px; padding: max(24px, env(safe-area-inset-top)) max(24px, env(safe-area-inset-left)) 28px;
+  }
+  .mobile-home-only { display: block; }
+  .home-avatar { width: 140px; height: 140px; margin: 6px 0; }
+  .home-avatar img { width: 100%; height: 100%; object-fit: contain; image-rendering: pixelated; }
+  .intro .home-title { font-size: 30px; margin: 0; }
+  .intro .home-tagline { font-size: 23px; line-height: 1.5; margin: 0; }
+  .intro .home-tagline br { display: block; }
+  .intro > p { font-size: 15px; line-height: 1.8; color: #626f5b; margin: 0; }
+  .intro .eyebrow { font-size: 12px; letter-spacing: 1px; color: #68765a; }
+  .teacher-art, .quote { display: none; }
+  .home-rules { width: 100%; background: #fffefa; border-radius: 18px; padding: 16px; border: 1px solid #e3e7d9; }
+  .home-rules h2 { font-size: 17px; margin: 0 0 10px; }
+  .home-rules p { font-size: 14px; line-height: 1.7; margin: 6px 0; }
+  #mobile-begin { width: 100%; min-height: 50px; font-size: 17px; border-radius: 12px; }
+  .intro .home-save-note { font-size: 12px; color: #69765d; }
+  body[data-mobile-view="game"] .game {
+    display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px;
+    width: 100%; max-width: none; margin: 0; border: 0; border-radius: 0;
+    padding: env(safe-area-inset-top, 0px) max(8px, env(safe-area-inset-right)) 12px max(8px, env(safe-area-inset-left));
+    background: transparent; box-shadow: none;
+  }
+  .classroom-controls, .classroom-tools { display: contents; }
+  .sidebar-header, .game-top, .level-select-label, .advance-note, .gesture-guide { display: none; }
+  .mobile-app-bar {
+    display: flex; grid-row: 1; align-items: center; justify-content: space-between;
+    height: 44px; gap: 8px; margin: 0; padding: 0;
+  }
+  .mobile-app-bar strong { font-size: 17px; }
+  .mobile-app-bar button { width: 44px; height: 44px; border-radius: 10px; font-size: 25px; }
+  .mobile-app-bar button:active { background: #e7eddd; }
+  .level-picker { grid-row: 2; margin: 0; min-width: 0; }
+  #level-select { width: 100%; min-height: 32px; height: 32px; padding: 2px 32px 2px 12px; border-radius: 8px; font-size: 14px; color: #425a34; }
+  .stats { grid-row: 3; display: flex; flex-direction: row; justify-content: space-between; align-items: center;
+    gap: 4px; height: 28px; margin: 0; padding: 0 3px; font-size: 12px; color: #526348; white-space: nowrap; }
+  .stats b { margin: 0; color: #425338; font-variant-numeric: tabular-nums; }
+  .stats .lives { font-size: 11px; }
+  .stats .teacher-icon { width: 18px; height: 18px; }
+  .board { grid-row: 4; width: 100%; height: auto; min-height: 0; max-height: none;
+    aspect-ratio: 1 / 1; align-self: start; justify-self: stretch;
+    box-sizing: border-box; border: 2px solid #fff; padding: 2px; gap: 2px; border-radius: 10px;
+    touch-action: none; overscroll-behavior: contain; }
+  .cell { width: 100%; height: 100%; min-width: 0; min-height: 0; border-radius: 4px;
+    padding: 0; font-size: 24px; touch-action: none; -webkit-touch-callout: none; }
+  .cell.mark { font-size: clamp(22px, 7vw, 34px); }
+  .cell .teacher-avatar { width: 88%; height: 88%; }
+  .actions { grid-row: 5; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px;
+    margin: 4px 0 0; padding: 8px 0 max(8px, env(safe-area-inset-bottom, 0px));
+    background: #f8f6ef; }
+  .actions button, .actions #hint { display: flex; align-items: center; justify-content: center;
+    min-height: 48px; min-width: 0; padding: 8px 2px; border-radius: 10px;
+    font-size: 14px; color: #425738; border: 1px solid #dce3d1; background: #fffefa; }
+  .actions #hint { background: #eaf0df; }
+  #message { grid-row: 6; min-height: 36px; margin: 0; padding: 4px 8px;
+    font-size: 12px; line-height: 1.7; text-align: center; color: #5c7050; }
+  #message.failure { color: #a82b4a; }
+  dialog { width: calc(100% - 32px); max-width: 440px; max-height: 85dvh; overflow-y: auto;
+    padding: 22px; border-radius: 18px; }
+  dialog button { min-height: 44px; }
+  dialog .close { min-width: 44px; }
+  .celebration { padding: 16px; }
+  .celebration-card { width: min(380px, 100%); padding: 20px 16px; }
+  .celebration h2 { font-size: 23px; }
+  .celebration-avatar { width: min(30dvh, 240px); height: min(30dvh, 240px); }
+  .dance-shadow { margin-bottom: 10px; }
+}

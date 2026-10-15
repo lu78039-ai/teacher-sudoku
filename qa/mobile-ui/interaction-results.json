@@ -1,0 +1,20 @@
+{
+  "singleTap": true,
+  "secondTapClears": true,
+  "doubleTapPlacesTeacher": true,
+  "dragMarks": true,
+  "secondDragClears": true,
+  "undoEntireDrag": true,
+  "restart": true,
+  "hint": true,
+  "rules": true,
+  "settings": true,
+  "returnAndResume": true,
+  "reloadPreservesCount": true,
+  "thirdMistakeDialog": true,
+  "victory": true,
+  "autoAdvanceVerifiedToLevel": 2,
+  "browserConsoleErrors": [],
+  "touchHardware": false,
+  "touchPointerEvents": "covered in verify-mobile.cjs"
+}

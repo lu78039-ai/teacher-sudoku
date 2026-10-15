@@ -79,3 +79,7 @@ aside{overflow:visible;max-height:none;align-self:center;padding:0}aside h3{font
 #failure-dialog{width:min(440px,90vw);text-align:center;border:2px solid #e4b4ba;padding:30px 24px}#failure-dialog .failure-symbol{font-size:68px;line-height:1.5;animation:failure-sigh 1s ease-in-out 2}#failure-title{color:#a64f63;margin:10px 0}#failure-phrase{font-size:19px;line-height:1.8;color:#65525c;margin:16px 0}.failure-note{font-size:12px!important;color:#9a8f8f!important}.failure-actions{display:flex;justify-content:center;gap:12px;margin-top:20px}.failure-actions button{padding:10px 16px;font-size:14px;border-radius:9px}#failure-view{border:1px solid #dfd5d6}@keyframes failure-sigh{0%,100%{transform:rotate(0)}30%{transform:rotate(-12deg)}70%{transform:rotate(12deg)}}
 @media(min-width:2200px){#failure-dialog{width:700px;max-width:90vw;padding:48px}#failure-dialog .failure-symbol{font-size:110px}#failure-title{font-size:36px}#failure-phrase{font-size:30px}.failure-note{font-size:20px!important}.failure-actions button{font-size:24px;padding:18px 25px}}
 @media(prefers-reduced-motion:reduce){#failure-dialog .failure-symbol{animation:none}}
+
+#hint[hidden]{display:none!important}
+
+.celebration-avatar{width:clamp(140px,34dvh,480px);height:clamp(140px,34dvh,480px);max-width:100%;object-fit:contain}.dancing-teacher{margin:8px auto;transform-origin:50% 75%}.celebration-card{max-height:94dvh}.party-sparkles{line-height:1.2}
