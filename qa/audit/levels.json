@@ -1,0 +1,1199 @@
+{
+  "total": 149,
+  "duplicates": [],
+  "method": "all rotations/reflections/recolorings; size first, then elimination-only solvability, multi-candidate deduction steps, deduction length; heuristic not a human difficulty rating",
+  "levels": [
+    {
+      "displayLevel": 1,
+      "id": 0,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 2,
+      "steps": 6
+    },
+    {
+      "displayLevel": 2,
+      "id": 3,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 6
+    },
+    {
+      "displayLevel": 3,
+      "id": 51,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 6
+    },
+    {
+      "displayLevel": 4,
+      "id": 5,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 7
+    },
+    {
+      "displayLevel": 5,
+      "id": 62,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 7
+    },
+    {
+      "displayLevel": 6,
+      "id": 49,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 7
+    },
+    {
+      "displayLevel": 7,
+      "id": 55,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 7
+    },
+    {
+      "displayLevel": 8,
+      "id": 66,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 7
+    },
+    {
+      "displayLevel": 9,
+      "id": 26,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 10,
+      "id": 48,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 11,
+      "id": 52,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 12,
+      "id": 56,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 13,
+      "id": 58,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 14,
+      "id": 2,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 8
+    },
+    {
+      "displayLevel": 15,
+      "id": 63,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 8
+    },
+    {
+      "displayLevel": 16,
+      "id": 25,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 17,
+      "id": 27,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 18,
+      "id": 28,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 19,
+      "id": 57,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 20,
+      "id": 60,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 21,
+      "id": 65,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 22,
+      "id": 68,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 23,
+      "id": 24,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 24,
+      "id": 50,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 25,
+      "id": 54,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 26,
+      "id": 59,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 27,
+      "id": 70,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 28,
+      "id": 71,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 29,
+      "id": 1,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 10
+    },
+    {
+      "displayLevel": 30,
+      "id": 4,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 10
+    },
+    {
+      "displayLevel": 31,
+      "id": 29,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 10
+    },
+    {
+      "displayLevel": 32,
+      "id": 64,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 10
+    },
+    {
+      "displayLevel": 33,
+      "id": 53,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 11
+    },
+    {
+      "displayLevel": 34,
+      "id": 61,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 10
+    },
+    {
+      "displayLevel": 35,
+      "id": 67,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 12
+    },
+    {
+      "displayLevel": 36,
+      "id": 69,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 12
+    },
+    {
+      "displayLevel": 37,
+      "id": 72,
+      "n": 5,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 13
+    },
+    {
+      "displayLevel": 38,
+      "id": 9,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 7
+    },
+    {
+      "displayLevel": 39,
+      "id": 10,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 8
+    },
+    {
+      "displayLevel": 40,
+      "id": 6,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 41,
+      "id": 73,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 42,
+      "id": 82,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 43,
+      "id": 85,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 8
+    },
+    {
+      "displayLevel": 44,
+      "id": 79,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 9
+    },
+    {
+      "displayLevel": 45,
+      "id": 90,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 9
+    },
+    {
+      "displayLevel": 46,
+      "id": 96,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 9
+    },
+    {
+      "displayLevel": 47,
+      "id": 31,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 48,
+      "id": 35,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 49,
+      "id": 91,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 50,
+      "id": 92,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 51,
+      "id": 94,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 52,
+      "id": 11,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 10
+    },
+    {
+      "displayLevel": 53,
+      "id": 76,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 10
+    },
+    {
+      "displayLevel": 54,
+      "id": 97,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 10
+    },
+    {
+      "displayLevel": 55,
+      "id": 8,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 56,
+      "id": 30,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 57,
+      "id": 32,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 58,
+      "id": 34,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 59,
+      "id": 74,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 60,
+      "id": 75,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 61,
+      "id": 78,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 62,
+      "id": 81,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 10
+    },
+    {
+      "displayLevel": 63,
+      "id": 33,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 11
+    },
+    {
+      "displayLevel": 64,
+      "id": 80,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 11
+    },
+    {
+      "displayLevel": 65,
+      "id": 83,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 11
+    },
+    {
+      "displayLevel": 66,
+      "id": 93,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 11
+    },
+    {
+      "displayLevel": 67,
+      "id": 7,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 12
+    },
+    {
+      "displayLevel": 68,
+      "id": 77,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 12
+    },
+    {
+      "displayLevel": 69,
+      "id": 84,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 12
+    },
+    {
+      "displayLevel": 70,
+      "id": 86,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 12
+    },
+    {
+      "displayLevel": 71,
+      "id": 95,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 12
+    },
+    {
+      "displayLevel": 72,
+      "id": 88,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 13
+    },
+    {
+      "displayLevel": 73,
+      "id": 89,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 13
+    },
+    {
+      "displayLevel": 74,
+      "id": 87,
+      "n": 6,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 11,
+      "steps": 15
+    },
+    {
+      "displayLevel": 75,
+      "id": 13,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 3,
+      "steps": 8
+    },
+    {
+      "displayLevel": 76,
+      "id": 14,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 9
+    },
+    {
+      "displayLevel": 77,
+      "id": 15,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 9
+    },
+    {
+      "displayLevel": 78,
+      "id": 110,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 10
+    },
+    {
+      "displayLevel": 79,
+      "id": 17,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 9
+    },
+    {
+      "displayLevel": 80,
+      "id": 107,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 10
+    },
+    {
+      "displayLevel": 81,
+      "id": 12,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 11
+    },
+    {
+      "displayLevel": 82,
+      "id": 104,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 11
+    },
+    {
+      "displayLevel": 83,
+      "id": 113,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 11
+    },
+    {
+      "displayLevel": 84,
+      "id": 114,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 11
+    },
+    {
+      "displayLevel": 85,
+      "id": 121,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 11
+    },
+    {
+      "displayLevel": 86,
+      "id": 112,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 11
+    },
+    {
+      "displayLevel": 87,
+      "id": 38,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 88,
+      "id": 39,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 89,
+      "id": 100,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 90,
+      "id": 102,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 91,
+      "id": 105,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 92,
+      "id": 37,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 12
+    },
+    {
+      "displayLevel": 93,
+      "id": 40,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 12
+    },
+    {
+      "displayLevel": 94,
+      "id": 111,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 12
+    },
+    {
+      "displayLevel": 95,
+      "id": 103,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 13
+    },
+    {
+      "displayLevel": 96,
+      "id": 108,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 13
+    },
+    {
+      "displayLevel": 97,
+      "id": 115,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 13
+    },
+    {
+      "displayLevel": 98,
+      "id": 16,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 14
+    },
+    {
+      "displayLevel": 99,
+      "id": 98,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 14
+    },
+    {
+      "displayLevel": 100,
+      "id": 109,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 14
+    },
+    {
+      "displayLevel": 101,
+      "id": 119,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 14
+    },
+    {
+      "displayLevel": 102,
+      "id": 122,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 14
+    },
+    {
+      "displayLevel": 103,
+      "id": 120,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 14
+    },
+    {
+      "displayLevel": 104,
+      "id": 101,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 15
+    },
+    {
+      "displayLevel": 105,
+      "id": 118,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 15
+    },
+    {
+      "displayLevel": 106,
+      "id": 116,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 14
+    },
+    {
+      "displayLevel": 107,
+      "id": 99,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 15
+    },
+    {
+      "displayLevel": 108,
+      "id": 117,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 16
+    },
+    {
+      "displayLevel": 109,
+      "id": 106,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 11,
+      "steps": 15
+    },
+    {
+      "displayLevel": 110,
+      "id": 36,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 11,
+      "steps": 17
+    },
+    {
+      "displayLevel": 111,
+      "id": 41,
+      "n": 7,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 12,
+      "steps": 18
+    },
+    {
+      "displayLevel": 112,
+      "id": 21,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 10
+    },
+    {
+      "displayLevel": 113,
+      "id": 23,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 4,
+      "steps": 10
+    },
+    {
+      "displayLevel": 114,
+      "id": 18,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 12
+    },
+    {
+      "displayLevel": 115,
+      "id": 22,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 12
+    },
+    {
+      "displayLevel": 116,
+      "id": 44,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 5,
+      "steps": 12
+    },
+    {
+      "displayLevel": 117,
+      "id": 130,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 11
+    },
+    {
+      "displayLevel": 118,
+      "id": 129,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 119,
+      "id": 131,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 12
+    },
+    {
+      "displayLevel": 120,
+      "id": 127,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 13
+    },
+    {
+      "displayLevel": 121,
+      "id": 124,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 12
+    },
+    {
+      "displayLevel": 122,
+      "id": 20,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 13
+    },
+    {
+      "displayLevel": 123,
+      "id": 123,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 13
+    },
+    {
+      "displayLevel": 124,
+      "id": 125,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 13
+    },
+    {
+      "displayLevel": 125,
+      "id": 128,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 13
+    },
+    {
+      "displayLevel": 126,
+      "id": 132,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 13
+    },
+    {
+      "displayLevel": 127,
+      "id": 19,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 14
+    },
+    {
+      "displayLevel": 128,
+      "id": 126,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 14
+    },
+    {
+      "displayLevel": 129,
+      "id": 133,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 13
+    },
+    {
+      "displayLevel": 130,
+      "id": 134,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 14
+    },
+    {
+      "displayLevel": 131,
+      "id": 43,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 16
+    },
+    {
+      "displayLevel": 132,
+      "id": 46,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 9,
+      "steps": 16
+    },
+    {
+      "displayLevel": 133,
+      "id": 42,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 16
+    },
+    {
+      "displayLevel": 134,
+      "id": 45,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 17
+    },
+    {
+      "displayLevel": 135,
+      "id": 47,
+      "n": 8,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 17
+    },
+    {
+      "displayLevel": 136,
+      "id": 143,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 14
+    },
+    {
+      "displayLevel": 137,
+      "id": 144,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 14
+    },
+    {
+      "displayLevel": 138,
+      "id": 135,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 15
+    },
+    {
+      "displayLevel": 139,
+      "id": 136,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 15
+    },
+    {
+      "displayLevel": 140,
+      "id": 137,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 15
+    },
+    {
+      "displayLevel": 141,
+      "id": 138,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 15
+    },
+    {
+      "displayLevel": 142,
+      "id": 139,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 7,
+      "steps": 15
+    },
+    {
+      "displayLevel": 143,
+      "id": 141,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 13
+    },
+    {
+      "displayLevel": 144,
+      "id": 142,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 15
+    },
+    {
+      "displayLevel": 145,
+      "id": 145,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 15
+    },
+    {
+      "displayLevel": 146,
+      "id": 146,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 15
+    },
+    {
+      "displayLevel": 147,
+      "id": 147,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 8,
+      "steps": 16
+    },
+    {
+      "displayLevel": 148,
+      "id": 140,
+      "n": 9,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 10,
+      "steps": 15
+    },
+    {
+      "displayLevel": 149,
+      "id": 148,
+      "n": 10,
+      "solvedByElimination": true,
+      "multiCandidateSteps": 6,
+      "steps": 15
+    }
+  ]
+}

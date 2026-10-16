@@ -9,6 +9,7 @@ function mobileGameIsActive() {
     document.body.dataset.mobileView = view === 'game' ? 'game' : 'home';
     try { sessionStorage.setItem('teacher-mobile-view', document.body.dataset.mobileView); } catch {}
     window.scrollTo({top: 0, behavior: 'instant'});
+    if(typeof syncWakeLock==='function')syncWakeLock();
     if (view === 'game') document.querySelector('#mobile-back').focus({preventScroll: true});
   }
   document.body.dataset.mobileView = remembered === 'game' ? 'game' : 'home';

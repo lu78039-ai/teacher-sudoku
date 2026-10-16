@@ -1,0 +1,48 @@
+{
+  "manifest": {
+    "status": 200,
+    "mime": "application/manifest+json; charset=utf-8",
+    "name": "尋找班導",
+    "display": "standalone",
+    "start_url": "http://127.0.0.1:4174/teacher-sudoku/dist/index.html",
+    "scope": "http://127.0.0.1:4174/teacher-sudoku/dist/"
+  },
+  "icons": [
+    {
+      "url": "http://127.0.0.1:4174/teacher-sudoku/dist/icons/app-192.png",
+      "status": 200,
+      "mime": "image/png"
+    },
+    {
+      "url": "http://127.0.0.1:4174/teacher-sudoku/dist/icons/app-512.png",
+      "status": 200,
+      "mime": "image/png"
+    }
+  ],
+  "serviceWorker": {
+    "scope": "http://127.0.0.1:4174/teacher-sudoku/dist/",
+    "active": "activated",
+    "script": "http://127.0.0.1:4174/teacher-sudoku/dist/sw.js"
+  },
+  "caches": [
+    {
+      "name": "teacher-sudoku:http://127.0.0.1:4174/teacher-sudoku/dist/:d46052e006a0de41d74e",
+      "assets": [
+        "http://127.0.0.1:4174/teacher-sudoku/dist/app.js",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/assets/teacher-pixel-avatar.png",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/assets/teacher-pixel-victory.png",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/icons/app-192.png",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/icons/app-512.png",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/index.html",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/level-order.js",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/levels.js",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/manifest.webmanifest",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/mobile-ui.js",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/mobile.css",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/pwa.js",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/style.css",
+        "http://127.0.0.1:4174/teacher-sudoku/dist/wake-lock.js"
+      ]
+    }
+  ]
+}

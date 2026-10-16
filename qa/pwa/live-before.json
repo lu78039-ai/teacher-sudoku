@@ -1,0 +1,29 @@
+[
+  {
+    "path": "index.html",
+    "status": 200,
+    "mime": "text/html; charset=utf-8",
+    "hasManifest": false,
+    "hasServiceWorker": false
+  },
+  {
+    "path": "manifest.webmanifest",
+    "status": 404,
+    "mime": "text/html; charset=utf-8"
+  },
+  {
+    "path": "sw.js",
+    "status": 404,
+    "mime": "text/html; charset=utf-8"
+  },
+  {
+    "path": "icons/app-192.png",
+    "status": 404,
+    "mime": "text/html; charset=utf-8"
+  },
+  {
+    "path": "icons/app-512.png",
+    "status": 404,
+    "mime": "text/html; charset=utf-8"
+  }
+]

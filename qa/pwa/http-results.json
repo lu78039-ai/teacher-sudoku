@@ -1,0 +1,77 @@
+[
+  {
+    "path": "app.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  },
+  {
+    "path": "assets/teacher-pixel-avatar.png",
+    "status": 200,
+    "mime": "image/png"
+  },
+  {
+    "path": "assets/teacher-pixel-victory.png",
+    "status": 200,
+    "mime": "image/png"
+  },
+  {
+    "path": "icons/app-192.png",
+    "status": 200,
+    "mime": "image/png"
+  },
+  {
+    "path": "icons/app-512.png",
+    "status": 200,
+    "mime": "image/png"
+  },
+  {
+    "path": "index.html",
+    "status": 200,
+    "mime": "text/html; charset=utf-8"
+  },
+  {
+    "path": "level-order.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  },
+  {
+    "path": "levels.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  },
+  {
+    "path": "manifest.webmanifest",
+    "status": 200,
+    "mime": "application/manifest+json; charset=utf-8"
+  },
+  {
+    "path": "mobile-ui.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  },
+  {
+    "path": "mobile.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8"
+  },
+  {
+    "path": "pwa.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  },
+  {
+    "path": "style.css",
+    "status": 200,
+    "mime": "text/css; charset=utf-8"
+  },
+  {
+    "path": "wake-lock.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  },
+  {
+    "path": "sw.js",
+    "status": 200,
+    "mime": "text/javascript; charset=utf-8"
+  }
+]

@@ -73,3 +73,11 @@ Mobile UI V1.0 已恢復「提示」功能，可從工具列使用。
 ### 即時單擊 V6
 
 移除 300ms 單擊等待。放開手指後立即標記 ×，快速第二次點擊時取代第一下操作並放置班導，整次雙擊只需一次復原。為保留即時回應，雙擊過程第一下會短暫顯示 ×。
+
+## QA、排序與螢幕保持亮屏
+
+關卡由小方陣開始，同尺寸以推理複雜度估計排序。原始題目索引不變，舊進度仍對應同題。每一錯格每局只計錯一次；清除或復原後再點不多扣。遊玩時可申請螢幕保持亮著，設定中可關閉，系統省電政策仍可能限制。
+
+開發檢查：node scripts/audit-levels.cjs、node scripts/prepare-pwa.cjs、node verify-all.cjs。PWA 使用 HTTPS 或 localhost；直接開 file:// 仍能遊玩，但不能安裝或註冊 Service Worker。
+
+PWA 安裝/部署步驟與實測限制見 [PWA-INSTALL.md](PWA-INSTALL.md)，QA 結果見 [qa/audit/REPORT.md](qa/audit/REPORT.md)。候選分支未直接發佈正式站。

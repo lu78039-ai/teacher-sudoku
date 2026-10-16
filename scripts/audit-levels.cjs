@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');const {deduction}=require('../deduction.cjs');
+const root=path.resolve(__dirname,'..');const levels=vm.runInNewContext(fs.readFileSync(path.join(root,'dist/levels.js'),'utf8')+';LEVELS');
+function canonical(g,n){const forms=[];for(let f=0;f<2;f++)for(let t=0;t<4;t++){const out=Array(n*n);for(let r=0;r<n;r++)for(let c=0;c<n;c++){let y=r,x=f?n-1-c:c;for(let k=0;k<t;k++)[y,x]=[x,n-1-y];out[y*n+x]=g[r*n+c]}const ids=new Map();forms.push(out.map(v=>{if(!ids.has(v))ids.set(v,ids.size);return ids.get(v)}).join(','))}return n+':'+forms.sort()[0]}
+const seen=new Map(),duplicates=[];const rows=levels.map((p,id)=>{const k=canonical(p.regions,p.n);if(seen.has(k))duplicates.push([seen.get(k),id]);else seen.set(k,id);const proof=deduction(p.regions,p.n);return {id,n:p.n,solvedByElimination:proof.solved,multiCandidateSteps:proof.trace.filter(t=>t.options.length>1).length,steps:proof.trace.length}});
+const sorted=[...rows].sort((a,b)=>a.n-b.n||Number(b.solvedByElimination)-Number(a.solvedByElimination)||a.multiCandidateSteps-b.multiCandidateSteps||a.steps-b.steps||a.id-b.id);
+const output='// Display order only: original LEVELS indices and saved progress remain stable.\nconst LEVEL_ORDER='+JSON.stringify(sorted.map(p=>p.id))+';\n';
+const target=path.join(root,'dist/level-order.js');
+if(process.argv.includes('--check')){if(fs.readFileSync(target,'utf8')!==output)throw Error('Level order stale')}else fs.writeFileSync(target,output);
+fs.mkdirSync(path.join(root,'qa/audit'),{recursive:true});fs.writeFileSync(path.join(root,'qa/audit/levels.json'),JSON.stringify({total:levels.length,duplicates,method:'all rotations/reflections/recolorings; size first, then elimination-only solvability, multi-candidate deduction steps, deduction length; heuristic not a human difficulty rating',levels:sorted.map((p,rank)=>({displayLevel:rank+1,...p}))},null,2));
+if(duplicates.length)throw Error('Duplicate levels: '+JSON.stringify(duplicates));console.log('PASS: '+levels.length+' unique puzzles; display order is size-first then deduction complexity; source data unchanged.');

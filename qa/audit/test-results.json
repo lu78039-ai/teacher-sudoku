@@ -1,0 +1,62 @@
+[
+  {
+    "command": "node scripts/audit-levels.cjs --check",
+    "exitCode": 0,
+    "ms": 687,
+    "log": "qa/audit/audit-levels.log"
+  },
+  {
+    "command": "node scripts/prepare-pwa.cjs --check",
+    "exitCode": 0,
+    "ms": 720,
+    "log": "qa/audit/prepare-pwa.log"
+  },
+  {
+    "command": "node verify-audit.cjs",
+    "exitCode": 0,
+    "ms": 749,
+    "log": "qa/audit/verify-audit.log"
+  },
+  {
+    "command": "node verify-wake-lock.cjs",
+    "exitCode": 0,
+    "ms": 682,
+    "log": "qa/audit/verify-wake-lock.log"
+  },
+  {
+    "command": "node verify-pwa-client.cjs",
+    "exitCode": 0,
+    "ms": 648,
+    "log": "qa/audit/verify-pwa-client.log"
+  },
+  {
+    "command": "node verify-pwa.cjs",
+    "exitCode": 0,
+    "ms": 1066,
+    "log": "qa/audit/verify-pwa.log"
+  },
+  {
+    "command": "node verify.cjs",
+    "exitCode": 0,
+    "ms": 738,
+    "log": "qa/audit/verify.log"
+  },
+  {
+    "command": "node verify-mobile.cjs",
+    "exitCode": 0,
+    "ms": 616,
+    "log": "qa/audit/verify-mobile.log"
+  },
+  {
+    "command": "node verify-interactions.cjs",
+    "exitCode": 0,
+    "ms": 652,
+    "log": "qa/audit/verify-interactions.log"
+  },
+  {
+    "command": "node verify-native-touch.cjs",
+    "exitCode": 0,
+    "ms": 665,
+    "log": "qa/audit/verify-native-touch.log"
+  }
+]
