@@ -105,3 +105,7 @@
   .intro .home-save-note{font-size:10px}.intro .eyebrow{font-size:10px}
   .home-rules h2{font-size:14px}.home-rules p{font-size:12px;margin:2px 0}
 }
+
+@media(max-width:1099px){.stats{gap:3px;font-size:12px}.stats .best-time{font-size:11px}.actions button:disabled{opacity:.45;cursor:default}}
+
+@media(max-width:1099px){#level-group,#level-select{height:32px;min-height:32px;padding:2px 20px 2px 6px;font-size:13px;border-radius:8px}}

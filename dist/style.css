@@ -100,3 +100,7 @@ aside{overflow:visible;max-height:none;align-self:center;padding:0}aside h3{font
 #hint:disabled{opacity:.45;cursor:default}
 
 #pwa-update[hidden]{display:none}#pwa-update{position:fixed;z-index:120;left:50%;bottom:max(12px,env(safe-area-inset-bottom));transform:translateX(-50%);width:min(94vw,480px);display:flex;align-items:center;gap:8px;padding:12px;border:1px solid #c9d5b8;border-radius:14px;background:#fffefa;box-shadow:0 4px 24px #303c3233;font-size:13px}#pwa-update span{flex:1}#pwa-update button{min-height:44px;padding:8px;border-radius:8px;background:#eaf0df;white-space:nowrap}
+
+.actions #undo:disabled{opacity:.45;cursor:default}
+
+.level-select-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}.level-select-row select{width:100%;min-width:0;border:1px solid #bdcbb0;border-radius:9px;padding:10px 6px;background:#fffefa;color:#425a34;font:inherit}.pwa-repair-link{display:inline-block;min-height:44px;padding:8px;color:#425a34}

@@ -17,7 +17,7 @@ let celebrationTimer=null,celebrationReady=false,errorTimer=null;
 function showMistakeFeedback(){if(errorTimer!==null)clearTimeout(errorTimer);const feedback=$('#error-feedback');feedback.hidden=false;feedback.replaceChildren();const heart=document.createElement('span');heart.className='error-heart';heart.textContent='💔';feedback.append(heart);errorTimer=setTimeout(()=>{feedback.hidden=true;errorTimer=null},2000);}
 function hideCelebration(){if(celebrationTimer!==null)clearTimeout(celebrationTimer);celebrationTimer=null;$('#celebration').hidden=true;}
 function celebrate(){hideCelebration();$('#celebration-avatar').src='assets/teacher-pixel-victory.png?v=victory-1';$('#praise').textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)];$('#celebration').hidden=false;const clearedLevel=idx;celebrationTimer=setTimeout(()=>{hideCelebration();if(won&&idx===clearedLevel){if(levelNumber(idx)<levelOrder.length)load(levelOrder[levelNumber(idx)]);else $('#message').textContent=`🏆 全部關卡完成！你是尋找班導大師！可選擇關卡再次挑戰。`}},5000);}
-const renderStats={boardBuilds:0,cellUpdates:0,pickerBuilds:0};let renderedLevel=-1,renderedValues=[],renderedBad=[],pickerVersion='',crossingPasses=[];
+const renderStats={boardBuilds:0,cellUpdates:0,pickerBuilds:0};let renderedLevel=-1,renderedValues=[],renderedBad=[],pickerVersion='',pickerGroup=null,crossingPasses=[];
 const levelOrder=typeof LEVEL_ORDER!=='undefined'?LEVEL_ORDER:LEVELS.map((_,i)=>i).sort((a,b)=>LEVELS[a].n-LEVELS[b].n||a-b);
 const levelNumber=i=>levelOrder.indexOf(i)+1;
 const HINTS_ENABLED=false;let bestTimes={};
@@ -99,7 +99,7 @@ function edit(i,m){
   }else{cells[i]=cells[i]===m?0:m;render()}
   $('#board').children[i].focus({preventScroll:true});
 }
-function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
+function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;pickerGroup=null;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
 $('#undo').onclick=()=>{if(failed||won)return;clearTap();if(history.length){restoreCells(history.pop());render()}};$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(!HINTS_ENABLED||won||failed||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];remember();cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
 
 
@@ -173,10 +173,15 @@ if(nativeTouchEnabled){
 function difficultyOf(i){return LEVELS[i].difficulty??Math.floor(i/6)}
 function groupLevels(d){return LEVELS.flatMap((p,i)=>difficultyOf(i)===d?[i]:[])}
 function renderLevelPicker(){
-  const list=$('#level-select'),version=LEVELS.length+':'+completed.join(',');
-  if(pickerVersion!==version||list.children.length!==LEVELS.length){
-    list.replaceChildren();levelOrder.forEach((i,rank)=>{const option=document.createElement('option');option.value=String(i);option.textContent=`${completed.includes(i)?'✓ ':''}第 ${rank+1} 關`;list.append(option)});
+  const ranges=$('#level-group'),list=$('#level-select'),size=25,total=Math.ceil(levelOrder.length/size);
+  if(ranges.children.length!==total){ranges.replaceChildren();for(let group=0;group<total;group++){const option=document.createElement('option');option.value=String(group);option.textContent=`${group*size+1}–${Math.min((group+1)*size,levelOrder.length)} 關`;ranges.append(option)}}
+  const group=pickerGroup??Math.floor((levelNumber(idx)-1)/size),start=group*size,ids=levelOrder.slice(start,start+size),version=group+':'+LEVELS.length+':'+completed.join(',');
+  if(pickerVersion!==version){
+    list.replaceChildren();const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='選擇關卡';placeholder.disabled=true;placeholder.hidden=true;list.append(placeholder);
+    ids.forEach((id,offset)=>{const option=document.createElement('option');option.value=String(id);option.textContent=`${completed.includes(id)?'✓ ':''}第 ${start+offset+1} 關 · ${LEVELS[id].n} 位`;list.append(option)});
     pickerVersion=version;renderStats.pickerBuilds++;list.dataset.buildCount=String(renderStats.pickerBuilds);
   }
-  list.value=String(idx);list.onchange=()=>{const chosen=Number(list.value);if(Number.isInteger(chosen)&&LEVELS[chosen])load(chosen)};
+  ranges.value=String(group);list.value=ids.includes(idx)?String(idx):'';
+  ranges.onchange=()=>{const next=Number(ranges.value);if(Number.isInteger(next)&&next>=0&&next<total){pickerGroup=next;renderLevelPicker()}};
+  list.onchange=()=>{if(list.value==='')return;const chosen=Number(list.value);if(Number.isInteger(chosen)&&ids.includes(chosen))load(chosen)};
 }
