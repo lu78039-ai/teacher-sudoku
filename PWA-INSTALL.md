@@ -6,7 +6,7 @@
 
 正式站初次檢查：index.html 200，但未連結 Manifest；manifest.webmanifest、sw.js、icons/app-192.png、icons/app-512.png 均 404。原始 HTTP 紀錄：qa/pwa/live-before.json。
 
-候選版：manifest.webmanifest 的 name/short_name 為尋找班導，display 為 standalone；相對 start_url ./index.html、scope ./、id ./ 分別解析到原 GitHub Pages dist 路徑。192/512 PNG 使用現有班導頭像。保留全部 149 題與既有 localStorage key。
+候選版：manifest.webmanifest 的 name/short_name 為尋找班導，display 為 standalone；相對 start_url ./index.html、scope ./、id ./ 分別解析到原 GitHub Pages dist 路徑。192/512 PNG 使用現有班導頭像。保留既有題目與 localStorage key。
 
 ## 已驗證與未驗證
 
@@ -19,7 +19,7 @@
 ## 每次更新與部署
 
 1. 修改候選分支後執行 node scripts/audit-levels.cjs、node scripts/prepare-pwa.cjs。
-2. 執行 node verify-all.cjs，確認十組檢查通過。
+2. 執行 node verify-all.cjs，確認全部檢查通過。
 3. 經使用者確認後才合併/部署。上傳完整 dist，包含 icons、assets、manifest.webmanifest、sw.js、pwa.js、wake-lock.js、level-order.js，不能只上傳 index.html。保留原路徑。
 4. GitHub Pages 完成部署後，再以下列實機與 DevTools 步驟驗收。
 

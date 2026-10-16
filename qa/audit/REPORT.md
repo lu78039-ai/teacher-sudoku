@@ -1,3 +1,5 @@
+> 此報告保留上一版 QA 紀錄；最新介面、題庫與測試請見 [手機 V8 報告](../mobile-v8/REPORT.md)。
+
 # 尋找班導 QA 與修正（2026-10-16）
 
 候選分支 feature/pwa-install；未合併 main、未部署。

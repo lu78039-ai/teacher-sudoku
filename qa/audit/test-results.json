@@ -2,61 +2,73 @@
   {
     "command": "node scripts/audit-levels.cjs --check",
     "exitCode": 0,
-    "ms": 687,
+    "ms": 786,
     "log": "qa/audit/audit-levels.log"
   },
   {
     "command": "node scripts/prepare-pwa.cjs --check",
     "exitCode": 0,
-    "ms": 720,
+    "ms": 616,
     "log": "qa/audit/prepare-pwa.log"
+  },
+  {
+    "command": "node verify-new100.cjs",
+    "exitCode": 0,
+    "ms": 1126,
+    "log": "qa/audit/verify-new100.log"
+  },
+  {
+    "command": "node verify-mobile-v8.cjs",
+    "exitCode": 0,
+    "ms": 550,
+    "log": "qa/audit/verify-mobile-v8.log"
   },
   {
     "command": "node verify-audit.cjs",
     "exitCode": 0,
-    "ms": 749,
+    "ms": 662,
     "log": "qa/audit/verify-audit.log"
   },
   {
     "command": "node verify-wake-lock.cjs",
     "exitCode": 0,
-    "ms": 682,
+    "ms": 539,
     "log": "qa/audit/verify-wake-lock.log"
   },
   {
     "command": "node verify-pwa-client.cjs",
     "exitCode": 0,
-    "ms": 648,
+    "ms": 577,
     "log": "qa/audit/verify-pwa-client.log"
   },
   {
     "command": "node verify-pwa.cjs",
     "exitCode": 0,
-    "ms": 1066,
+    "ms": 1293,
     "log": "qa/audit/verify-pwa.log"
   },
   {
     "command": "node verify.cjs",
     "exitCode": 0,
-    "ms": 738,
+    "ms": 884,
     "log": "qa/audit/verify.log"
   },
   {
     "command": "node verify-mobile.cjs",
     "exitCode": 0,
-    "ms": 616,
+    "ms": 526,
     "log": "qa/audit/verify-mobile.log"
   },
   {
     "command": "node verify-interactions.cjs",
     "exitCode": 0,
-    "ms": 652,
+    "ms": 473,
     "log": "qa/audit/verify-interactions.log"
   },
   {
     "command": "node verify-native-touch.cjs",
     "exitCode": 0,
-    "ms": 665,
+    "ms": 637,
     "log": "qa/audit/verify-native-touch.log"
   }
 ]

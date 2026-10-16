@@ -45,5 +45,5 @@ run('load(0);clickCell(4,{detail:1,timeStamp:200000})');assert.equal(run('cells[
 run('load(0);clickCell(0,{detail:1,timeStamp:210000});flushTap()');assert.equal(run('cells[0]'),2);run('clickCell(0,{detail:1,timeStamp:211000});flushTap()');assert.equal(run('cells[0]'),0);
 run('clickCell(0,{detail:1,timeStamp:212000});load(1);flushTap()');assert.equal(run('cells[0]'),0);
 console.log('PASS: single tap paints X immediately, double tap replaces the first edit with one undo entry, level changes reset tap recognition.');
-for(const n of [5,6,7,8,9,10]){run(`load(LEVELS.findIndex(p=>p.n===${n}))`);for(let k=0;k<5;k++)run('applyHint()');assert.equal(run('hintsUsed'),n<7?0:3);assert.equal(run('cells.filter(v=>v===1).length'),n<7?0:3);assert.equal(nodes.get('#hint').hidden,n<7);assert.equal(nodes.get('#hint').disabled,true);if(n>=7){run("$('#undo').onclick();applyHint()");assert.equal(run('hintsUsed'),3);assert.equal(run('cells.filter(v=>v===1).length'),2);assert.equal(JSON.parse(storage.get('find-homeroom-teacher')).hintsUsed,3)}}
-console.log('PASS: hints hidden below 7x7, limited to three on 7x7–10x10, saved and not refunded by undo.');
+for(const n of [5,6,7,8,9,10]){run(`load(LEVELS.findIndex(p=>p.n===${n}))`);for(let k=0;k<5;k++)run('applyHint()');assert.equal(run('hintsUsed'),0);assert.equal(run('cells.filter(v=>v===1).length'),0);assert.equal(nodes.get('#hint').hidden,true);assert.equal(nodes.get('#hint').disabled,true)}
+console.log('PASS: hints hidden and disabled for every board size.');
