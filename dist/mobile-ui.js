@@ -18,6 +18,10 @@ function mobileGameIsActive() {
   const settings = document.querySelector('#mobile-settings-dialog');
   const rules = document.querySelector('#rules');
   document.querySelector('#mobile-settings').onclick = () => settings.showModal();
+  document.querySelector('#desktop-settings').onclick = () => settings.showModal();
+  const sound = document.querySelector('#sound-enabled');
+  sound.checked = soundEnabled;
+  sound.onchange = () => { soundEnabled = sound.checked; try { localStorage.setItem('teacher-sound', soundEnabled ? 'on' : 'off'); } catch {} if(soundEnabled)playGameSound('teacher'); }; 
   document.querySelector('#mobile-settings-close').onclick = () => settings.close();
   document.querySelector('#toolbar-rules').onclick = () => rules.showModal();
   document.querySelector('#settings-rules').onclick = () => { settings.close(); rules.showModal(); };

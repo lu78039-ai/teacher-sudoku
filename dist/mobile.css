@@ -109,3 +109,5 @@
 @media(max-width:1099px){.stats{gap:3px;font-size:12px}.stats .best-time{font-size:11px}.actions button:disabled{opacity:.45;cursor:default}}
 
 @media(max-width:1099px){#level-group,#level-select{height:32px;min-height:32px;padding:2px 20px 2px 6px;font-size:13px;border-radius:8px}}
+@media(min-width:1100px){#desktop-settings{font-size:13px;padding:8px}.sidebar-header{flex-wrap:wrap}.score-stat{color:#667e45}}
+@media(max-width:1099px){#desktop-settings{display:none}.stats{flex-wrap:wrap;height:44px;justify-content:space-between;align-content:center;row-gap:2px}.stats .score-stat{font-size:12px;color:#667e45}.game .stats .best-time{font-size:11px}body[data-mobile-view="game"] .game{grid-template-rows:40px 32px 44px auto 52px 32px}.board{width:min(100%,max(80px,calc(100dvh - 236px - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px))));}}

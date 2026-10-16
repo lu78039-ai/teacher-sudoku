@@ -11,17 +11,19 @@ const FAILURE_LINES=[
 '這局先讓班導贏，下局換你漂亮過關！'
 ];
 let failureShown=false;
-function showFailure(){if(failureShown)return;failureShown=true;hideCelebration();$('#failure-phrase').textContent=FAILURE_LINES[Math.floor(Math.random()*FAILURE_LINES.length)];const dialog=$('#failure-dialog');$('#failure-retry').onclick=()=>load(idx);$('#failure-view').onclick=()=>{dialog.close();$('#reset').focus()};dialog.showModal();}
+function showFailure(){if(failureShown)return;if(typeof playGameSound==='function')playGameSound('fail');failureShown=true;hideCelebration();$('#failure-phrase').textContent=FAILURE_LINES[Math.floor(Math.random()*FAILURE_LINES.length)];const dialog=$('#failure-dialog');$('#failure-retry').onclick=()=>load(idx);$('#failure-view').onclick=()=>{dialog.close();$('#reset').focus()};dialog.showModal();}
 const PRAISE=['厲害了！','完全正確！','太棒了，你成功了！','班導為你喝采！','推理高手就是你！','完美過關，漂亮！','所有班導都找到位置了！','你的觀察力真敏銳！','腦力滿分，班導滿意！','這一關，被你征服了！','班導們為你跳支舞！','好厲害的邏輯小天才！'];
 let celebrationTimer=null,celebrationReady=false,errorTimer=null;
 function showMistakeFeedback(){if(errorTimer!==null)clearTimeout(errorTimer);const feedback=$('#error-feedback');feedback.hidden=false;feedback.replaceChildren();const heart=document.createElement('span');heart.className='error-heart';heart.textContent='💔';feedback.append(heart);errorTimer=setTimeout(()=>{feedback.hidden=true;errorTimer=null},2000);}
 function hideCelebration(){if(celebrationTimer!==null)clearTimeout(celebrationTimer);celebrationTimer=null;$('#celebration').hidden=true;}
-function celebrate(){hideCelebration();$('#celebration-avatar').src='assets/teacher-pixel-victory.png?v=victory-1';$('#praise').textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)];$('#celebration').hidden=false;const clearedLevel=idx;celebrationTimer=setTimeout(()=>{hideCelebration();if(won&&idx===clearedLevel){if(levelNumber(idx)<levelOrder.length)load(levelOrder[levelNumber(idx)]);else $('#message').textContent=`🏆 全部關卡完成！你是尋找班導大師！可選擇關卡再次挑戰。`}},5000);}
+function celebrate(){if(typeof playGameSound==='function')playGameSound('win');hideCelebration();$('#celebration-avatar').src='assets/teacher-pixel-victory.png?v=victory-1';$('#praise').textContent=PRAISE[Math.floor(Math.random()*PRAISE.length)];$('#celebration').hidden=false;const clearedLevel=idx;celebrationTimer=setTimeout(()=>{hideCelebration();if(won&&idx===clearedLevel){if(levelNumber(idx)<levelOrder.length)load(levelOrder[levelNumber(idx)]);else $('#message').textContent=`🏆 全部關卡完成！你是尋找班導大師！可選擇關卡再次挑戰。`}},5000);}
 const renderStats={boardBuilds:0,cellUpdates:0,pickerBuilds:0};let renderedLevel=-1,renderedValues=[],renderedBad=[],pickerVersion='',pickerGroup=null,crossingPasses=[];
 const levelOrder=typeof LEVEL_ORDER!=='undefined'?LEVEL_ORDER:LEVELS.map((_,i)=>i).sort((a,b)=>LEVELS[a].n-LEVELS[b].n||a-b);
 const levelNumber=i=>levelOrder.indexOf(i)+1;
 const HINTS_ENABLED=false;let bestTimes={};
 try{const stored=JSON.parse(localStorage.getItem('teacher-best-times')||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))for(const [id,value] of Object.entries(stored))if(Number.isInteger(+id)&&LEVELS[+id]&&Number.isFinite(value)&&value>=0)bestTimes[id]=Math.floor(value)}catch{}
+const TEACHER_POINTS=500;
+function roundScore(){const p=LEVELS[idx];return Math.max(0,3-mistakes)*100+cells.reduce((sum,v,i)=>sum+(v===1?TEACHER_POINTS:v===2&&p.solution[Math.floor(i/p.n)]!==i%p.n?10:0),0)}
 function clockText(value){return String(Math.floor(value/60)).padStart(2,'0')+':'+String(value%60).padStart(2,'0')}
 function remember(state=snapshotCells()){history.length=0;history.push(state)}
 const $=s=>document.querySelector(s),colors=['#9bcce9','#f291bc','#f5d35d','#78d4d3','#ac94e5','#a3d989','#ffb77c','#77bca0','#cc9b78','#aab9ec'];let drag=null,suppressClickUntil=-1;let lastTap=null;let hintsUsed=0,mistakeCells=new Set();let idx=levelOrder[0],mode=1,cells=[],history=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
@@ -43,6 +45,7 @@ function render(persist=true){
   if(won&&!completed.includes(idx))completed.push(idx);
   if(won&&!wasWon&&(bestTimes[idx]===undefined||seconds<bestTimes[idx])){bestTimes[idx]=seconds;try{localStorage.setItem('teacher-best-times',JSON.stringify(bestTimes))}catch{}}
   $('#best-time').textContent=bestTimes[idx]===undefined?'--:--':clockText(bestTimes[idx]);
+  $('#score').textContent=roundScore();
   $('#undo').disabled=history.length===0||failed||won;
   const hint=$('#hint');hint.hidden=!HINTS_ENABLED;hint.disabled=!HINTS_ENABLED||hintsUsed>=3||won||failed;hint.textContent=`☀ 提示（${3-hintsUsed}/3）`;
   renderLevelPicker();
@@ -94,9 +97,9 @@ function edit(i,m){
     const firstMistake=!mistakeCells.has(i);mistakeCells.add(i);cells[i]=3;
     if(firstMistake)mistakes++;
     failed=mistakes>=3;render();
-    if(firstMistake){const heart=document.createElement('span');heart.className='heartbreak';heart.textContent='💔';$('#board').children[i].append(heart);showMistakeFeedback()}
+    if(firstMistake){if(!failed&&typeof playGameSound==='function')playGameSound('error');const heart=document.createElement('span');heart.className='heartbreak';heart.textContent='💔';$('#board').children[i].append(heart);showMistakeFeedback()}
     if(!failed)$('#message').textContent=firstMistake?`💔 這格不是班導的位置，犯錯 ${mistakes} / 3 次。`:'這格已記錄過錯誤，不重複扣愛心。';
-  }else{cells[i]=cells[i]===m?0:m;render()}
+  }else{cells[i]=cells[i]===m?0:m;render();if(!won&&typeof playGameSound==='function')playGameSound(cells[i]===1?'teacher':'mark')}
   $('#board').children[i].focus({preventScroll:true});
 }
 function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;pickerGroup=null;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
@@ -151,7 +154,7 @@ function finishDrag(e,cancelled=false){
   if(d.active){
     suppressClickUntil=stamp+350;lastTap=null;
     if(!d.nativeTouch&&board.hasPointerCapture(e.pointerId))board.releasePointerCapture(e.pointerId);
-    if(d.changed)save();
+    if(d.changed){save();if(!cancelled&&typeof playGameSound==='function')playGameSound('mark')}
   }
 }
 board.onpointerup=e=>{if(nativeTouchEnabled&&e.pointerType==='touch'&&!e.nativeTouch)return;if(drag?.active)board.onpointermove(e);finishDrag(e)};
