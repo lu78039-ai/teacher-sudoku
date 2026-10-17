@@ -1,5 +1,5 @@
 {
-  "version": "a7a4cc3722b689a14979",
+  "version": "00ef9696453f302f9996",
   "levelCount": 300,
   "assets": {
     "app.js": "c33dfe5fc38f26c722a238a9fa0cabee6fc5f619edbc9ac6d05c1fe13242d298",
@@ -21,7 +21,7 @@
     "palette.js": "0efb26cfbaec283d640b4d5dc279c38f20adf52be04e27dce832abf27d6c7c70",
     "pwa.js": "ef94cfba6d415933281f4bc5e8319ad268ea036a4301e1dc77e0d9ccd200f89d",
     "sound.js": "4c47938e5e75949232add68eaaee98e2f6bbe8d3201cb582f22098ab5af6fd79",
-    "storybook.css": "5b998f4a2c548f3e1b7f4527041629aaf8366debc05d80ab7a9d440f1c356152",
+    "storybook.css": "4ba57cab42b41c878eacebb94b702ed3dd0d348a6c093349598990e67cb537ea",
     "style.css": "b713c26fa0d077bc5fcd21434b98c3a22fa71e1df0c0bb8a9f3e258c11cf7f27",
     "v2-ui.js": "90b62e67f654c44758d838ceb3f0344975f334e6be347acc0918d93b34091a0a",
     "v2.css": "beac9275a16261cbaad38f27fc162aa0180ffcd39d47040e424dbb7ec898ed5f",

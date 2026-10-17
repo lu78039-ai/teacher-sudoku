@@ -3,6 +3,8 @@ const VERSION = '__VERSION__';
 const PREFIX = 'teacher-sudoku:' + self.registration.scope + ':';
 const CACHE = PREFIX + VERSION;
 const ASSETS = __ASSETS__;
+const EXPECTED_HASHES = __HASHES__;
+const LEVEL_COUNT = __LEVEL_COUNT__;
 const urls = ASSETS.map(path => new URL(path, self.registration.scope).href);
 const allowed = new Set(urls);
 const entry = new URL('index.html', self.registration.scope).href;
@@ -12,7 +14,17 @@ self.addEventListener('install', event => {
   event.waitUntil((async () => {
     try {
       const cache = await caches.open(CACHE);
-      await cache.addAll(urls.map(url => new Request(url, {cache: 'reload'})));
+      // Never cache new HTML with old data, even when both HTTP requests return 200.
+      const verified=await Promise.all(urls.map(async (url,index)=>{
+        const response=await fetch(new Request(url,{cache:'no-store'}));
+        if(!response.ok)throw Error('PWA missing asset: '+ASSETS[index]);
+        const path=ASSETS[index],raw=await response.clone().arrayBuffer();
+        const bytes=path.endsWith('.png')?raw:new TextEncoder().encode(new TextDecoder('utf-8',{ignoreBOM:true}).decode(raw).replace(/\r\n/g,'\n'));
+        const hash=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),b=>b.toString(16).padStart(2,'0')).join('');
+        if(hash!==EXPECTED_HASHES[path])throw Error('PWA mixed release: '+path);
+        return [url,response];
+      }));
+      for(const [url,response] of verified)await cache.put(url,response);
     } catch (error) {
       await caches.delete(CACHE);
       throw error;
@@ -29,6 +41,7 @@ self.addEventListener('activate', event => {
 });
 self.addEventListener('message', event => {
   if (event.data?.type === 'ACTIVATE_UPDATE') self.skipWaiting();
+  if (event.data?.type === 'GET_VERSION') event.ports?.[0]?.postMessage({version:VERSION,levelCount:LEVEL_COUNT});
 });
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;

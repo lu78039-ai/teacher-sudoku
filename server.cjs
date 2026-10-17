@@ -1,9 +1,10 @@
 const http=require('node:http'),fs=require('node:fs'),path=require('node:path');
 const root=path.resolve(__dirname,'dist');
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.webmanifest':'application/manifest+json; charset=utf-8','.png':'image/png'};
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.webmanifest':'application/manifest+json; charset=utf-8','.png':'image/png','.json':'application/json; charset=utf-8'};
 const server=http.createServer((req,res)=>{
  let pathname;
  try{pathname=decodeURIComponent(new URL(req.url,'http://localhost').pathname)}catch{res.writeHead(400);res.end();return}
+ if(pathname==='/update.html'||pathname==='/teacher-sudoku/update.html'){fs.readFile(path.join(__dirname,'update.html'),(err,data)=>{res.writeHead(err?404:200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});res.end(err?'Not found':data)});return}
  if(pathname==='/__qa/pwa.html'){fs.readFile(path.join(__dirname,'qa/pwa/diagnostics.html'),(err,data)=>{res.writeHead(err?404:200,{'Content-Type':'text/html; charset=utf-8','Cache-Control':'no-store'});res.end(err?'Not found':data)});return}
  let relative=pathname.replace(/^\/teacher-sudoku\/dist(?=\/|$)/,'').replace(/^\/dist(?=\/|$)/,'').replace(/^\//,'');
  if(!relative||relative.endsWith('/'))relative+='index.html';

@@ -10,7 +10,7 @@
 
 ## 已驗證與未驗證
 
-- 已：本機 Chrome 實際註冊/啟用 Service Worker、14 個離線資源、Manifest 與 PNG HTTP 200、MIME 正確、斷開本機伺服器後重開遊戲與進度保持。
+- 已：本機 Chrome 實際註冊/啟用 Service Worker、16 個離線資源、Manifest 與 PNG HTTP 200、MIME 正確、斷開本機伺服器後重開遊戲與進度保持。
 - 已：桌面 Chrome 模擬重新部署，新 worker 先 waiting；點更新後 active、舊 cache 清除，錯誤標記與 1/3 犯錯保持。
 - 已：程式測試壞部署不取代上一個成功快取、只刪此 scope 的舊 cache、不攔截外站或其他專案、不清除 localStorage。
 - 未：Chrome DevTools Application 面板人工檢查。瀏覽器工具不能直接操作此面板，已以本機診斷頁與自動測試補充，不能視為同一項驗收。
@@ -39,8 +39,10 @@ Service Worker 依檔案內容產生版本指紋，Windows/Git 換行不影響�
 
 - Manifest：名稱、192/512 圖示、Start URL、Scope、Display=standalone，無解析與 installability error。正式 Manifest MIME 應為 application/manifest+json（application/json 亦可解析），圖示 image/png。
 - Service Workers：來源 /teacher-sudoku/dist/sw.js，scope /teacher-sudoku/dist/，activated 且控制遊戲頁。初次安裝後必要時重載一次。
-- Cache Storage：此 scope 的 teacher-sudoku 版本快取包含完整 14 個資源。離線模擬後重載頁面，仍能操作；測完取消 Offline。
+- Cache Storage：此 scope 的 teacher-sudoku 版本快取包含完整 16 個資源。離線模擬後重載頁面，仍能操作；測完取消 Offline。
 - Network：Manifest、SW、CSS、JS、兩張 PNG 圖示、頭像與慶祝圖均無 404。不要用不在快取清單內的隨機網址測試離線 fallback。
 - 更新：修改候選內容並重建 sw，部署後回到頁面，確認 waiting、更新提示、切換完成及進度保持。保留多視窗時逐一確認。
 
 參考：Chrome 官方 PWA Debugging https://developer.chrome.com/docs/devtools/progressive-web-apps 、MDN Installability https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Guides/Making_PWAs_installable 。
+
+V9：新增 release.json 與逐檔 SHA-256 校驗，完整部署 dist 及根目錄 update.html。舊快取持續顯示 149 關時，部署完成後使用根目錄更新頁；不清除網站資料。詳見 DEPLOY-V9.md。
