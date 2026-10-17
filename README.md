@@ -15,3 +15,5 @@
 V2 候選分支 feature/v2-ui：新 UI 與色盤驗收見 [V2-REVIEW.md](V2-REVIEW.md)。新色盤在 palette-test.html 或 index.html?palette=v2 預覽，待確認後才改預設；尚未部署或合併 main。
 
 驗證：node scripts/audit-levels.cjs、node scripts/prepare-pwa.cjs、node verify-all.cjs。原始題目索引不可重新排列，進度依內部索引保存。PWA 每次內容變更須重建並完整部署，詳見 [PWA-INSTALL.md](PWA-INSTALL.md)。
+
+教室插畫版：獨立班導與背景素材、完整 HTML 首頁與遊戲卡片。素材提示詞及測試見 [qa/storybook/REPORT.md](qa/storybook/REPORT.md)，截圖見 [qa/storybook/index.html](qa/storybook/index.html)。
