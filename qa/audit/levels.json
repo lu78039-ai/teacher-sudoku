@@ -1,2248 +1,5505 @@
 {
-  "total": 249,
+  "total": 300,
   "duplicates": [],
-  "method": "all rotations/reflections/recolorings; size first, then elimination-only solvability, multi-candidate deduction steps, deduction length; heuristic not a human difficulty rating",
+  "method": "Size ascending 5–12 first; within each size: weakest available logic engine (singles, common exclusion, Hall pairs, Hall triples, contradiction), then deterministic weighted trace cost. Heuristic, not a measured human difficulty rating. Original IDs remain stable.",
+  "weights": {
+    "single": 1,
+    "commonExclusion": 3,
+    "locked": 3,
+    "distanceEnvelope": 4,
+    "hall2": 6,
+    "hall3": 9,
+    "contradiction": 15
+  },
   "levels": [
     {
       "displayLevel": 1,
-      "id": 0,
+      "id": 149,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 30,
+      "steps": 3,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 2,
-      "steps": 6
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 2,
-      "id": 149,
+      "id": 3,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 40,
+      "steps": 4,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 2,
-      "steps": 6
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 3,
       "id": 153,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 40,
+      "steps": 4,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 2,
-      "steps": 6
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 4,
-      "id": 3,
+      "id": 0,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10139,
+      "steps": 6,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 6
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 5,
       "id": 51,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10169,
+      "steps": 6,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 6
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 6,
-      "id": 5,
+      "id": 62,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10179,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 7,
-      "id": 62,
+      "id": 5,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10185,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 8,
-      "id": 49,
+      "id": 66,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10212,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 9,
-      "id": 55,
+      "id": 56,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10212,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 10,
-      "id": 66,
+      "id": 26,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10213,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 11,
-      "id": 26,
+      "id": 48,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10213,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 12,
-      "id": 48,
+      "id": 49,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10215,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 13,
-      "id": 52,
+      "id": 55,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10219,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 14,
-      "id": 56,
+      "id": 52,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10219,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 15,
       "id": 58,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10226,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 16,
-      "id": 2,
+      "id": 60,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10253,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 17,
-      "id": 63,
+      "id": 2,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10255,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 18,
-      "id": 25,
+      "id": 57,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10259,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 19,
-      "id": 27,
+      "id": 63,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10262,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 20,
-      "id": 28,
+      "id": 65,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10265,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 21,
-      "id": 57,
+      "id": 68,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10265,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 22,
-      "id": 60,
+      "id": 28,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10269,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 23,
-      "id": 65,
+      "id": 25,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10271,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 24,
-      "id": 68,
+      "id": 154,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10271,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 25,
-      "id": 154,
+      "id": 27,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10285,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 26,
-      "id": 155,
+      "id": 158,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10289,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 27,
-      "id": 158,
+      "id": 70,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10303,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 28,
       "id": 24,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10309,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 29,
-      "id": 50,
+      "id": 54,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10309,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 30,
-      "id": 54,
+      "id": 155,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10312,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 31,
-      "id": 59,
+      "id": 71,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10315,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 32,
-      "id": 70,
+      "id": 59,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10319,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 33,
-      "id": 71,
+      "id": 50,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10321,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 34,
-      "id": 150,
+      "id": 4,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10328,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 35,
-      "id": 151,
+      "id": 150,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10332,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 36,
-      "id": 1,
+      "id": 53,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10338,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 37,
-      "id": 4,
+      "id": 29,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10339,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 38,
-      "id": 29,
+      "id": 152,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10342,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 39,
-      "id": 64,
+      "id": 151,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10344,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 40,
-      "id": 152,
+      "id": 64,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10345,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 41,
-      "id": 53,
+      "id": 1,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10352,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 42,
       "id": 157,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10355,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 43,
       "id": 61,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10377,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 44,
       "id": 67,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10395,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 45,
-      "id": 69,
+      "id": 156,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10395,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 46,
-      "id": 156,
+      "id": 69,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10397,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 47,
       "id": 72,
       "n": 5,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10462,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 48,
       "id": 9,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 40,
+      "steps": 4,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 49,
       "id": 171,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 40,
+      "steps": 4,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 50,
-      "id": 10,
+      "id": 173,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 40,
+      "steps": 4,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 51,
-      "id": 163,
+      "id": 10,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10196,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 7
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 52,
-      "id": 6,
+      "id": 177,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10216,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 53,
-      "id": 73,
+      "id": 90,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10216,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 54,
-      "id": 82,
+      "id": 73,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10218,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 55,
-      "id": 85,
+      "id": 82,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10222,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 56,
-      "id": 173,
+      "id": 161,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10223,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 57,
-      "id": 177,
+      "id": 160,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10226,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 58,
-      "id": 79,
+      "id": 163,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10231,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 59,
-      "id": 90,
+      "id": 6,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10232,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 60,
-      "id": 96,
+      "id": 85,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10232,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 61,
-      "id": 160,
+      "id": 96,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10242,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 62,
-      "id": 161,
+      "id": 172,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10242,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 63,
-      "id": 172,
+      "id": 79,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10250,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 64,
-      "id": 31,
+      "id": 94,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10252,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 65,
-      "id": 35,
+      "id": 159,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10252,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 66,
       "id": 91,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10262,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 67,
       "id": 92,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10278,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 68,
-      "id": 94,
+      "id": 35,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10282,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 69,
-      "id": 159,
+      "id": 97,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10282,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 70,
-      "id": 11,
+      "id": 76,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10286,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 71,
-      "id": 76,
+      "id": 164,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10286,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 72,
-      "id": 97,
+      "id": 31,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10288,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 73,
-      "id": 164,
+      "id": 34,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10292,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 74,
-      "id": 8,
+      "id": 174,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10292,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 75,
-      "id": 30,
+      "id": 78,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10299,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 76,
-      "id": 32,
+      "id": 11,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10305,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 77,
-      "id": 34,
+      "id": 162,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10305,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 78,
-      "id": 74,
+      "id": 81,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10305,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 79,
-      "id": 75,
+      "id": 8,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10309,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 80,
-      "id": 78,
+      "id": 30,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10309,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 81,
-      "id": 81,
+      "id": 75,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10309,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 82,
-      "id": 162,
+      "id": 32,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10318,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 83,
-      "id": 174,
+      "id": 74,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10318,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 84,
-      "id": 33,
+      "id": 83,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10323,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 85,
       "id": 80,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10331,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 86,
-      "id": 83,
+      "id": 93,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10339,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 87,
-      "id": 93,
+      "id": 33,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10344,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 88,
       "id": 166,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10347,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 89,
       "id": 175,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10347,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 90,
       "id": 165,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10365,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 91,
-      "id": 7,
+      "id": 169,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10383,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 92,
-      "id": 169,
+      "id": 86,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10389,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 93,
-      "id": 77,
+      "id": 7,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10392,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 94,
-      "id": 84,
+      "id": 178,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10392,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 95,
-      "id": 86,
+      "id": 77,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10399,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 96,
-      "id": 95,
+      "id": 170,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10408,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 97,
       "id": 168,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10409,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 98,
-      "id": 170,
+      "id": 84,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10415,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 99,
-      "id": 88,
+      "id": 95,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10415,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 100,
-      "id": 178,
+      "id": 88,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10418,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 101,
       "id": 167,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10428,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 102,
       "id": 89,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10474,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 103,
       "id": 176,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10478,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 104,
       "id": 87,
       "n": 6,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10518,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 11,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 105,
-      "id": 13,
+      "id": 190,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 60,
+      "steps": 6,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 8
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 106,
-      "id": 14,
+      "id": 13,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10176,
+      "steps": 8,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 107,
       "id": 15,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10223,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 108,
-      "id": 190,
+      "id": 110,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10226,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 109,
-      "id": 192,
+      "id": 189,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10226,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 110,
-      "id": 110,
+      "id": 192,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10244,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 111,
-      "id": 189,
+      "id": 14,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10247,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 112,
-      "id": 17,
+      "id": 107,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10266,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 113,
-      "id": 107,
+      "id": 186,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10266,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 114,
-      "id": 186,
+      "id": 17,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10272,
+      "steps": 9,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 115,
-      "id": 12,
+      "id": 114,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10278,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 116,
-      "id": 104,
+      "id": 12,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10292,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 117,
-      "id": 113,
+      "id": 121,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10293,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 118,
-      "id": 114,
+      "id": 113,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10300,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 119,
-      "id": 121,
+      "id": 197,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10301,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 120,
-      "id": 197,
+      "id": 104,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10307,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 121,
       "id": 112,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10312,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 122,
-      "id": 180,
+      "id": 105,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10312,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 123,
       "id": 38,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10320,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 124,
-      "id": 39,
+      "id": 102,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10333,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 125,
-      "id": 100,
+      "id": 180,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10334,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 126,
-      "id": 102,
+      "id": 39,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10337,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 127,
-      "id": 105,
+      "id": 188,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10340,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 128,
       "id": 181,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10349,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 129,
-      "id": 188,
+      "id": 187,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10352,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 130,
-      "id": 37,
+      "id": 194,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10352,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 131,
-      "id": 40,
+      "id": 100,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10355,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 132,
       "id": 111,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10362,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 133,
-      "id": 187,
+      "id": 40,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10375,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 134,
-      "id": 194,
+      "id": 37,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10377,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 135,
-      "id": 103,
+      "id": 109,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10399,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 136,
-      "id": 108,
+      "id": 103,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10404,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 137,
-      "id": 115,
+      "id": 108,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10413,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 138,
-      "id": 179,
+      "id": 115,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10414,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 139,
-      "id": 195,
+      "id": 98,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10415,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 140,
-      "id": 16,
+      "id": 119,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10423,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 141,
-      "id": 98,
+      "id": 122,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10424,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 142,
-      "id": 109,
+      "id": 16,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10426,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 143,
-      "id": 119,
+      "id": 193,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10431,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 144,
-      "id": 122,
+      "id": 179,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10435,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 145,
-      "id": 193,
+      "id": 196,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10435,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 146,
-      "id": 196,
+      "id": 195,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10439,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 147,
-      "id": 120,
+      "id": 182,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10461,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 148,
-      "id": 101,
+      "id": 120,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10463,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 149,
-      "id": 118,
+      "id": 99,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10489,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 150,
-      "id": 182,
+      "id": 116,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10491,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 151,
-      "id": 116,
+      "id": 101,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10495,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 152,
-      "id": 99,
+      "id": 118,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10502,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 153,
       "id": 185,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10509,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 154,
       "id": 198,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10520,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 155,
       "id": 117,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10536,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 156,
       "id": 106,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10543,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 11,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 157,
       "id": 36,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10576,
+      "steps": 17,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 11,
-      "steps": 17
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 158,
       "id": 41,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10623,
+      "steps": 18,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 12,
-      "steps": 18
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 159,
       "id": 191,
       "n": 7,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10635,
+      "steps": 18,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 12,
-      "steps": 18
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 160,
       "id": 184,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 3,
+      "tierName": "三組限制",
+      "complexityScore": 30546,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 4
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "hall-3",
+        "locked",
+        "single",
+        "distance-envelope"
+      ]
     },
     {
       "displayLevel": 161,
       "id": 183,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 3,
+      "tierName": "三組限制",
+      "complexityScore": 30746,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 6
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-3",
+        "hall-2",
+        "common-exclusion",
+        "locked",
+        "distance-envelope",
+        "single"
+      ]
     },
     {
       "displayLevel": 162,
-      "id": 201,
+      "id": 199,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40570,
+      "steps": 13,
       "contradictionSteps": 1,
-      "multiCandidateSteps": 5,
-      "steps": 7
+      "probes": 3,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "hall-3",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 163,
-      "id": 203,
+      "id": 200,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40570,
+      "steps": 13,
       "contradictionSteps": 1,
-      "multiCandidateSteps": 6,
-      "steps": 8
+      "probes": 3,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "hall-3",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 164,
-      "id": 199,
+      "id": 201,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40570,
+      "steps": 13,
       "contradictionSteps": 1,
-      "multiCandidateSteps": 8,
-      "steps": 8
+      "probes": 3,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "hall-3",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 165,
-      "id": 200,
+      "id": 202,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40570,
+      "steps": 13,
       "contradictionSteps": 1,
-      "multiCandidateSteps": 8,
-      "steps": 8
+      "probes": 3,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "hall-3",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 166,
-      "id": 202,
+      "id": 203,
       "n": 7,
-      "solvedByElimination": false,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40570,
+      "steps": 13,
       "contradictionSteps": 1,
-      "multiCandidateSteps": 9,
-      "steps": 9
+      "probes": 3,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "hall-3",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 167,
       "id": 211,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 70,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 168,
       "id": 221,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 0,
+      "tierName": "單格確定",
+      "complexityScore": 70,
+      "steps": 7,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 3,
-      "steps": 9
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single"
+      ]
     },
     {
       "displayLevel": 169,
-      "id": 21,
+      "id": 23,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10236,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 170,
-      "id": 23,
+      "id": 21,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10249,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 171,
       "id": 208,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10249,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 172,
       "id": 210,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10249,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 173,
       "id": 216,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10249,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 174,
       "id": 220,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10249,
+      "steps": 10,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 10
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 175,
       "id": 219,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10250,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 4,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 176,
-      "id": 18,
+      "id": 22,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10282,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 177,
-      "id": 22,
+      "id": 44,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10290,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 178,
-      "id": 44,
+      "id": 18,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10298,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 179,
-      "id": 130,
+      "id": 206,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10316,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 180,
-      "id": 206,
+      "id": 214,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10316,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 181,
-      "id": 214,
+      "id": 130,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10332,
+      "steps": 11,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 11
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 182,
-      "id": 129,
+      "id": 131,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10332,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 183,
-      "id": 131,
+      "id": 127,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10336,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 184,
-      "id": 127,
+      "id": 218,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10340,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 185,
       "id": 212,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10342,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 186,
-      "id": 218,
+      "id": 129,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10348,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 187,
       "id": 124,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10372,
+      "steps": 12,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 188,
-      "id": 20,
+      "id": 123,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10372,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 189,
-      "id": 123,
+      "id": 128,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10376,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 190,
       "id": 125,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10378,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 191,
-      "id": 128,
+      "id": 132,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10382,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 192,
-      "id": 132,
+      "id": 205,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10382,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 193,
-      "id": 205,
+      "id": 19,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10388,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 194,
-      "id": 19,
+      "id": 126,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10388,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 195,
-      "id": 126,
+      "id": 207,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10388,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 196,
-      "id": 204,
+      "id": 20,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10394,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
     },
     {
       "displayLevel": 197,
-      "id": 207,
+      "id": 204,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10402,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 198,
       "id": 133,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10409,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 199,
       "id": 209,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10409,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 200,
       "id": 134,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10465,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 201,
-      "id": 43,
+      "id": 46,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10475,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 202,
-      "id": 46,
+      "id": 43,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10483,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 203,
       "id": 215,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10497,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 204,
-      "id": 42,
+      "id": 45,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10528,
+      "steps": 17,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 205,
-      "id": 213,
+      "id": 42,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10532,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 206,
-      "id": 217,
+      "id": 213,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10532,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 207,
-      "id": 45,
+      "id": 217,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10532,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 17
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 208,
       "id": 47,
       "n": 8,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10547,
+      "steps": 17,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 17
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 209,
-      "id": 225,
+      "id": 228,
       "n": 8,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41042,
+      "steps": 19,
+      "contradictionSteps": 3,
+      "probes": 8,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 4,
-      "multiCandidateSteps": 5,
-      "steps": 5
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "locked",
+        "distance-envelope",
+        "common-exclusion",
+        "single",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 210,
-      "id": 226,
+      "id": 223,
       "n": 8,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41090,
+      "steps": 19,
+      "contradictionSteps": 3,
+      "probes": 8,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 4,
-      "multiCandidateSteps": 5,
-      "steps": 5
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "locked",
+        "distance-envelope",
+        "common-exclusion",
+        "contradiction",
+        "single"
+      ]
     },
     {
       "displayLevel": 211,
-      "id": 222,
+      "id": 224,
       "n": 8,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41100,
+      "steps": 20,
+      "contradictionSteps": 3,
+      "probes": 8,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 4,
-      "multiCandidateSteps": 6,
-      "steps": 6
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "locked",
+        "distance-envelope",
+        "single",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 212,
-      "id": 227,
+      "id": 226,
       "n": 8,
-      "solvedByElimination": false,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41230,
+      "steps": 20,
       "contradictionSteps": 4,
-      "multiCandidateSteps": 6,
-      "steps": 7
+      "probes": 11,
+      "singletonRegions": 0,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "locked",
+        "common-exclusion",
+        "distance-envelope",
+        "contradiction",
+        "single"
+      ]
     },
     {
       "displayLevel": 213,
-      "id": 228,
+      "id": 222,
       "n": 8,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41246,
+      "steps": 20,
+      "contradictionSteps": 4,
+      "probes": 11,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 3,
-      "multiCandidateSteps": 7,
-      "steps": 7
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "locked",
+        "distance-envelope",
+        "common-exclusion",
+        "contradiction",
+        "single"
+      ]
     },
     {
       "displayLevel": 214,
-      "id": 224,
+      "id": 225,
       "n": 8,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41266,
+      "steps": 21,
+      "contradictionSteps": 4,
+      "probes": 11,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 3,
-      "multiCandidateSteps": 7,
-      "steps": 8
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "locked",
+        "distance-envelope",
+        "common-exclusion",
+        "single",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 215,
-      "id": 223,
+      "id": 227,
       "n": 8,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41280,
+      "steps": 21,
+      "contradictionSteps": 4,
+      "probes": 10,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 3,
-      "multiCandidateSteps": 8,
-      "steps": 8
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "hall-3",
+        "common-exclusion",
+        "distance-envelope",
+        "single",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 216,
       "id": 239,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10298,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 5,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 217,
       "id": 234,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10342,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 218,
       "id": 237,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10348,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 219,
       "id": 238,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10349,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 220,
-      "id": 143,
+      "id": 144,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10368,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 221,
-      "id": 144,
+      "id": 143,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10372,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 222,
-      "id": 135,
+      "id": 141,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10382,
+      "steps": 13,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 223,
-      "id": 136,
+      "id": 139,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10395,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 224,
-      "id": 137,
+      "id": 230,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10395,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 225,
-      "id": 138,
+      "id": 145,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10396,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 226,
-      "id": 139,
+      "id": 146,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10396,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 227,
-      "id": 230,
+      "id": 240,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10396,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 228,
-      "id": 236,
+      "id": 136,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10402,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 7,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 229,
-      "id": 141,
+      "id": 137,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10402,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 13
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 230,
-      "id": 142,
+      "id": 138,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10402,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 231,
-      "id": 145,
+      "id": 142,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10406,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 232,
-      "id": 146,
+      "id": 232,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10406,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 233,
-      "id": 232,
+      "id": 236,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10408,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 234,
-      "id": 240,
+      "id": 135,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10413,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 235,
       "id": 147,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10419,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 8,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 236,
       "id": 235,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10439,
+      "steps": 14,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 14
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 237,
       "id": 233,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10462,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 9,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 238,
       "id": 140,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10479,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 239,
       "id": 229,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10479,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 240,
       "id": 231,
       "n": 9,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10512,
+      "steps": 16,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 10,
-      "steps": 16
+      "probes": 0,
+      "singletonRegions": 0,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
     },
     {
       "displayLevel": 241,
-      "id": 241,
+      "id": 245,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40922,
+      "steps": 18,
+      "contradictionSteps": 2,
+      "probes": 2,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 6,
-      "multiCandidateSteps": 6,
-      "steps": 6
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "hall-3",
+        "locked",
+        "distance-envelope",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 242,
-      "id": 242,
+      "id": 243,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41052,
+      "steps": 23,
+      "contradictionSteps": 2,
+      "probes": 2,
+      "singletonRegions": 1,
       "solvedByElimination": false,
-      "contradictionSteps": 6,
-      "multiCandidateSteps": 6,
-      "steps": 6
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "distance-envelope",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 243,
-      "id": 244,
+      "id": 247,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41052,
+      "steps": 23,
+      "contradictionSteps": 2,
+      "probes": 2,
+      "singletonRegions": 1,
       "solvedByElimination": false,
-      "contradictionSteps": 6,
-      "multiCandidateSteps": 6,
-      "steps": 7
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "distance-envelope",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 244,
-      "id": 246,
+      "id": 248,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41052,
+      "steps": 23,
+      "contradictionSteps": 2,
+      "probes": 2,
+      "singletonRegions": 1,
       "solvedByElimination": false,
-      "contradictionSteps": 6,
-      "multiCandidateSteps": 7,
-      "steps": 7
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "distance-envelope",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 245,
-      "id": 245,
+      "id": 241,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41408,
+      "steps": 22,
+      "contradictionSteps": 6,
+      "probes": 6,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 2,
-      "multiCandidateSteps": 7,
-      "steps": 11
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 246,
-      "id": 243,
+      "id": 242,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41408,
+      "steps": 22,
+      "contradictionSteps": 6,
+      "probes": 6,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 2,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 247,
-      "id": 247,
+      "id": 246,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41408,
+      "steps": 22,
+      "contradictionSteps": 6,
+      "probes": 6,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 2,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 248,
-      "id": 248,
+      "id": 244,
       "n": 9,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 41468,
+      "steps": 23,
+      "contradictionSteps": 6,
+      "probes": 6,
+      "singletonRegions": 0,
       "solvedByElimination": false,
-      "contradictionSteps": 2,
-      "multiCandidateSteps": 7,
-      "steps": 12
+      "logicSolved": true,
+      "strategies": [
+        "hall-2",
+        "single",
+        "locked",
+        "common-exclusion",
+        "contradiction"
+      ]
     },
     {
       "displayLevel": 249,
+      "id": 258,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10352,
+      "steps": 15,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 250,
       "id": 148,
       "n": 10,
-      "solvedByElimination": true,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10362,
+      "steps": 15,
       "contradictionSteps": 0,
-      "multiCandidateSteps": 6,
-      "steps": 15
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 251,
+      "id": 256,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10382,
+      "steps": 15,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 252,
+      "id": 259,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10422,
+      "steps": 16,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 253,
+      "id": 253,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10429,
+      "steps": 16,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 254,
+      "id": 249,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10486,
+      "steps": 17,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 255,
+      "id": 257,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10489,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 256,
+      "id": 251,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10512,
+      "steps": 17,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 257,
+      "id": 254,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10512,
+      "steps": 17,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 258,
+      "id": 250,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10532,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 259,
+      "id": 252,
+      "n": 10,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10532,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 260,
+      "id": 255,
+      "n": 10,
+      "tier": 4,
+      "tierName": "反證推理",
+      "complexityScore": 40872,
+      "steps": 22,
+      "contradictionSteps": 1,
+      "probes": 2,
+      "singletonRegions": 1,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "locked",
+        "distance-envelope",
+        "common-exclusion",
+        "contradiction"
+      ]
+    },
+    {
+      "displayLevel": 261,
+      "id": 276,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10396,
+      "steps": 17,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
+    },
+    {
+      "displayLevel": 262,
+      "id": 262,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10442,
+      "steps": 17,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 263,
+      "id": 263,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10445,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 264,
+      "id": 267,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10461,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
+    },
+    {
+      "displayLevel": 265,
+      "id": 271,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10466,
+      "steps": 17,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 266,
+      "id": 260,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10476,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 267,
+      "id": 269,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10498,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 268,
+      "id": 274,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10508,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 269,
+      "id": 261,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10516,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 270,
+      "id": 268,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10518,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 271,
+      "id": 266,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10521,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
+    },
+    {
+      "displayLevel": 272,
+      "id": 273,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10547,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 273,
+      "id": 264,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10562,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 274,
+      "id": 277,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10578,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 275,
+      "id": 272,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10578,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 276,
+      "id": 270,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10613,
+      "steps": 20,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 277,
+      "id": 265,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10628,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 278,
+      "id": 275,
+      "n": 11,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10632,
+      "steps": 22,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 279,
+      "id": 299,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10442,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 280,
+      "id": 291,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10448,
+      "steps": 18,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
+    },
+    {
+      "displayLevel": 281,
+      "id": 289,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10488,
+      "steps": 20,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 282,
+      "id": 287,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10515,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 283,
+      "id": 298,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10532,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 284,
+      "id": 295,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10535,
+      "steps": 20,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 285,
+      "id": 292,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10545,
+      "steps": 20,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 286,
+      "id": 290,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10548,
+      "steps": 19,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "common-exclusion"
+      ]
+    },
+    {
+      "displayLevel": 287,
+      "id": 293,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10552,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 288,
+      "id": 280,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10558,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 289,
+      "id": 297,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10572,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 290,
+      "id": 279,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10585,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 291,
+      "id": 278,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10586,
+      "steps": 21,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 292,
+      "id": 282,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10594,
+      "steps": 22,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 293,
+      "id": 296,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10618,
+      "steps": 22,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 294,
+      "id": 284,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10638,
+      "steps": 22,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 295,
+      "id": 281,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10642,
+      "steps": 22,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 296,
+      "id": 285,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10642,
+      "steps": 22,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 2,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 297,
+      "id": 288,
+      "n": 12,
+      "tier": 1,
+      "tierName": "綜合刪除",
+      "complexityScore": 10693,
+      "steps": 23,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 1,
+      "solvedByElimination": true,
+      "logicSolved": true,
+      "strategies": [
+        "common-exclusion",
+        "single"
+      ]
+    },
+    {
+      "displayLevel": 298,
+      "id": 286,
+      "n": 12,
+      "tier": 2,
+      "tierName": "成組限制",
+      "complexityScore": 20732,
+      "steps": 23,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "distance-envelope",
+        "common-exclusion",
+        "locked"
+      ]
+    },
+    {
+      "displayLevel": 299,
+      "id": 294,
+      "n": 12,
+      "tier": 2,
+      "tierName": "成組限制",
+      "complexityScore": 20732,
+      "steps": 23,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "distance-envelope",
+        "common-exclusion",
+        "locked"
+      ]
+    },
+    {
+      "displayLevel": 300,
+      "id": 283,
+      "n": 12,
+      "tier": 3,
+      "tierName": "三組限制",
+      "complexityScore": 30842,
+      "steps": 23,
+      "contradictionSteps": 0,
+      "probes": 0,
+      "singletonRegions": 3,
+      "solvedByElimination": false,
+      "logicSolved": true,
+      "strategies": [
+        "single",
+        "hall-2",
+        "hall-3",
+        "locked",
+        "distance-envelope",
+        "common-exclusion"
+      ]
     }
   ]
 }
