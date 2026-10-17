@@ -23,7 +23,7 @@ const levelNumber=i=>levelOrder.indexOf(i)+1;
 const HINTS_ENABLED=false;let bestTimes={};
 try{const stored=JSON.parse(localStorage.getItem('teacher-best-times')||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))for(const [id,value] of Object.entries(stored))if(Number.isInteger(+id)&&LEVELS[+id]&&Number.isFinite(value)&&value>=0)bestTimes[id]=Math.floor(value)}catch{}
 function clockText(value){return String(Math.floor(value/60)).padStart(2,'0')+':'+String(value%60).padStart(2,'0')}
-const $=s=>document.querySelector(s),colors=typeof BoardPalette==='undefined'?[]:BoardPalette.LEGACY;let drag=null,suppressClickUntil=-1;let lastTap=null;let hintsUsed=0,mistakeCells=new Set();let idx=levelOrder[0],mode=1,cells=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
+const $=s=>document.querySelector(s),colors=typeof BoardPalette==='undefined'?[]:BoardPalette.LEGACY;let drag=null,suppressClickUntil=-1;let lastTap=null;let hintsUsed=0,mistakeCells=new Set(),pendingLevel=null;let idx=levelOrder[0],mode=1,cells=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
 try{const s=JSON.parse(localStorage.getItem('find-homeroom-teacher')||localStorage.getItem('woof-sudoku'));if(s&&Number.isInteger(s.idx)&&LEVELS[s.idx]){idx=s.idx;if(Array.isArray(s.mistakeCells))mistakeCells=new Set(s.mistakeCells.filter(i=>Number.isInteger(i)&&i>=0&&i<LEVELS[idx].n**2));hintsUsed=Number.isInteger(s.hintsUsed)?Math.max(0,Math.min(3,s.hintsUsed)):0;mistakes=Number.isInteger(s.mistakes)?Math.max(0,Math.min(3,s.mistakes)):0;failed=mistakes>=3;if(Array.isArray(s.cells)&&s.cells.length===LEVELS[idx].n**2&&s.cells.every(v=>[0,1,2,3].includes(v)))cells=s.cells;seconds=Number.isFinite(s.seconds)?Math.max(0,s.seconds):0;completed=Array.isArray(s.completed)?[...new Set(s.completed.filter(i=>Number.isInteger(i)&&LEVELS[i]))]:[]}}catch{}
 // Revalidate old saves: earlier versions allowed teachers outside the unique solution.
 let restoredErrors=0;
@@ -68,7 +68,7 @@ function render(persist=true){
     renderedValues[i]=v;renderedBad[i]=isBad;renderStats.cellUpdates++;
   });
   $('#message').className=failed?'failure':won?'win':'';
-  $('#message').textContent=failed?'💔 已犯錯 3 次，這局挑戰失敗。點「重來」再試一次！':won?'🎉 全部找到！慶祝 5 秒後，自動進入下一關。':bad.size?'有班導太靠近，或位於同一行、列、區域。':'讓所有班導找到自己的位置吧！';
+  $('#message').textContent=failed?'💔 已犯錯 3 次，這局挑戰失敗。點「重來」再試一次！':won?'🎉 全部找到！慶祝 5 秒後，自動進入下一關。':bad.size?'有班導太靠近，或位於同一行、列、區域。':'找出所有的班導吧！';
   time();if(typeof syncWakeLock==='function')syncWakeLock();if(persist)save();if(!won)hideCelebration();else if(!wasWon&&celebrationReady)celebrate();if(failed)showFailure();
   board.dataset.buildCount=String(renderStats.boardBuilds);board.dataset.cellUpdates=String(renderStats.cellUpdates);
   if(typeof performance!=='undefined')board.dataset.renderMs=(performance.now()-started).toFixed(3);
@@ -81,7 +81,7 @@ function clickCell(i,e){
   if(won||failed||cells[i]===3||mistakeCells.has(i)||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;
   if(e.detail===0){flushTap();edit(i,e.shiftKey?1:2);return}
   const now=e.timeStamp;
-  if(lastTap&&lastTap.i===i&&now-lastTap.time<=300){const before=lastTap.before;clearTap();restoreCells(before);edit(i,1);return}
+  if(lastTap&&lastTap.i===i&&now-lastTap.time<=500){const before=lastTap.before;clearTap();restoreCells(before);edit(i,1);return}
   clearTap();const before=snapshotCells();edit(i,2);lastTap={i,time:now,level:idx,before};
 }
 function edit(i,m){
@@ -98,8 +98,8 @@ function edit(i,m){
   }else{cells[i]=cells[i]===m?0:m;render();if(!won&&typeof playGameSound==='function')playGameSound(cells[i]===1?'teacher':'mark')}
   $('#board').children[i].focus({preventScroll:true});
 }
-function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;pickerGroup=null;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);seconds=0;won=false;render()}
-$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(!HINTS_ENABLED||won||failed||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
+function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;pendingLevel=null;$('#level-confirm').close();pickerGroup=null;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);seconds=0;won=false;render()}
+$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(!HINTS_ENABLED||won||failed||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&!$('#level-confirm').open&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
 
 
 // Per-cell crossing rule: preserve an existing X once, clear it on its next stroke.
@@ -137,7 +137,7 @@ board.onpointermove=e=>{
   if(!drag||drag.id!==e.pointerId||!Number.isFinite(e.clientX)||!Number.isFinite(e.clientY))return;
   const d=drag,dx=e.clientX-d.x,dy=e.clientY-d.y;
   if(!Number.isFinite(Math.hypot(dx,dy)))return;
-  if(!d.active&&Math.hypot(dx,dy)<(e.pointerType==='touch'?4:8))return;
+  if(!d.active&&Math.hypot(dx,dy)<(e.pointerType==='touch'?Math.min(12,Math.max(8,(d.geometry?.pitch||40)*.22)):8))return;
   if(!d.active){clearTap();d.active=true;if(!d.nativeTouch)board.setPointerCapture(e.pointerId)}
   e.preventDefault();const indices=[d.start],step=d.geometry?Math.max(4,d.geometry.pitch/3):8,steps=Math.min(128,Math.max(1,Math.ceil(Math.hypot(dx,dy)/step)));
   for(let k=0;k<=steps;k++)indices.push(pathIndex(d.x+dx*k/steps,d.y+dy*k/steps,d));
@@ -177,10 +177,14 @@ function renderLevelPicker(){
   const group=pickerGroup??Math.floor((levelNumber(idx)-1)/size),start=group*size,ids=levelOrder.slice(start,start+size),version=group+':'+LEVELS.length+':'+completed.join(',');
   if(pickerVersion!==version){
     list.replaceChildren();const placeholder=document.createElement('option');placeholder.value='';placeholder.textContent='選擇關卡';placeholder.disabled=true;placeholder.hidden=true;list.append(placeholder);
-    ids.forEach((id,offset)=>{const option=document.createElement('option');option.value=String(id);option.textContent=`${completed.includes(id)?'✓ ':''}第 ${start+offset+1} 關 · ${LEVELS[id].n} 位`;list.append(option)});
+    ids.forEach((id,offset)=>{const option=document.createElement('option');option.value=String(id);option.textContent=`${completed.includes(id)?'✓ ':''}第 ${start+offset+1} 關`;list.append(option)});
     pickerVersion=version;renderStats.pickerBuilds++;list.dataset.buildCount=String(renderStats.pickerBuilds);
   }
   ranges.value=String(group);list.value=ids.includes(idx)?String(idx):'';
   ranges.onchange=()=>{const next=Number(ranges.value);if(Number.isInteger(next)&&next>=0&&next<total){pickerGroup=next;renderLevelPicker()}};
-  list.onchange=()=>{if(list.value==='')return;const chosen=Number(list.value);if(Number.isInteger(chosen)&&ids.includes(chosen))load(chosen)};
+  list.onchange=()=>{if(list.value==='')return;const chosen=Number(list.value);if(Number.isInteger(chosen)&&ids.includes(chosen))requestLevelSwitch(chosen)};
 }
+
+function requestLevelSwitch(chosen){if(!Number.isInteger(chosen)||!LEVELS[chosen]||chosen===idx){renderLevelPicker();return}clearTap();pendingLevel=chosen;if(won)hideCelebration();$('#level-confirm-text').textContent='結束本局並前往第 '+levelNumber(chosen)+' 關嗎？';$('#level-confirm').showModal();renderLevelPicker()}
+function cancelLevelSwitch(){pendingLevel=null;$('#level-confirm').close();pickerGroup=null;renderLevelPicker();if(won)celebrate()}
+$('#level-confirm-cancel').onclick=cancelLevelSwitch;$('#level-confirm').oncancel=e=>{e.preventDefault();cancelLevelSwitch()};$('#level-confirm-accept').onclick=()=>{const chosen=pendingLevel;pendingLevel=null;$('#level-confirm').close();if(chosen!==null)load(chosen)};
