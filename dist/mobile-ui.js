@@ -1,6 +1,6 @@
 // Presentation-only mobile navigation. Never resets or rewrites game progress.
 function mobileGameIsActive() {
-  return !window.matchMedia('(max-width: 1099px)').matches || document.body.dataset.mobileView === 'game';
+  return !window.matchMedia('(max-width: 1199px)').matches || document.body.dataset.mobileView === 'game';
 }
 (function setupMobileUI() {
   let remembered = 'home';

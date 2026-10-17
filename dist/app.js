@@ -22,17 +22,14 @@ const levelOrder=typeof LEVEL_ORDER!=='undefined'?LEVEL_ORDER:LEVELS.map((_,i)=>
 const levelNumber=i=>levelOrder.indexOf(i)+1;
 const HINTS_ENABLED=false;let bestTimes={};
 try{const stored=JSON.parse(localStorage.getItem('teacher-best-times')||'{}');if(stored&&typeof stored==='object'&&!Array.isArray(stored))for(const [id,value] of Object.entries(stored))if(Number.isInteger(+id)&&LEVELS[+id]&&Number.isFinite(value)&&value>=0)bestTimes[id]=Math.floor(value)}catch{}
-const TEACHER_POINTS=500;
-function roundScore(){const p=LEVELS[idx];return Math.max(0,3-mistakes)*100+cells.reduce((sum,v,i)=>sum+(v===1?TEACHER_POINTS:v===2&&p.solution[Math.floor(i/p.n)]!==i%p.n?10:0),0)}
 function clockText(value){return String(Math.floor(value/60)).padStart(2,'0')+':'+String(value%60).padStart(2,'0')}
-function remember(state=snapshotCells()){history.length=0;history.push(state)}
-const $=s=>document.querySelector(s),colors=['#9bcce9','#f291bc','#f5d35d','#78d4d3','#ac94e5','#a3d989','#ffb77c','#77bca0','#cc9b78','#aab9ec'];let drag=null,suppressClickUntil=-1;let lastTap=null;let hintsUsed=0,mistakeCells=new Set();let idx=levelOrder[0],mode=1,cells=[],history=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
+const $=s=>document.querySelector(s),colors=typeof BoardPalette==='undefined'?[]:BoardPalette.LEGACY;let drag=null,suppressClickUntil=-1;let lastTap=null;let hintsUsed=0,mistakeCells=new Set();let idx=levelOrder[0],mode=1,cells=[],seconds=0,won=false,completed=[],mistakes=0,failed=false;
 try{const s=JSON.parse(localStorage.getItem('find-homeroom-teacher')||localStorage.getItem('woof-sudoku'));if(s&&Number.isInteger(s.idx)&&LEVELS[s.idx]){idx=s.idx;if(Array.isArray(s.mistakeCells))mistakeCells=new Set(s.mistakeCells.filter(i=>Number.isInteger(i)&&i>=0&&i<LEVELS[idx].n**2));hintsUsed=Number.isInteger(s.hintsUsed)?Math.max(0,Math.min(3,s.hintsUsed)):0;mistakes=Number.isInteger(s.mistakes)?Math.max(0,Math.min(3,s.mistakes)):0;failed=mistakes>=3;if(Array.isArray(s.cells)&&s.cells.length===LEVELS[idx].n**2&&s.cells.every(v=>[0,1,2,3].includes(v)))cells=s.cells;seconds=Number.isFinite(s.seconds)?Math.max(0,s.seconds):0;completed=Array.isArray(s.completed)?[...new Set(s.completed.filter(i=>Number.isInteger(i)&&LEVELS[i]))]:[]}}catch{}
 // Revalidate old saves: earlier versions allowed teachers outside the unique solution.
 let restoredErrors=0;
 cells.forEach((value,i)=>{if(value===1&&LEVELS[idx].solution[Math.floor(i/LEVELS[idx].n)]!==i%LEVELS[idx].n){cells[i]=3;restoredErrors++}});
 if(restoredErrors){mistakes=Math.min(3,mistakes+restoredErrors);failed=mistakes>=3;}
-cells.forEach((v,i)=>{if(v===3)mistakeCells.add(i)});
+cells.forEach((v,i)=>{if(v===3)mistakeCells.add(i)});mistakeCells.forEach(i=>cells[i]=3);
 function save(){try{localStorage.setItem('find-homeroom-teacher',JSON.stringify({idx,cells,seconds,completed,mistakes,hintsUsed,mistakeCells:[...mistakeCells]}))}catch{}}
 function conflicts(){let p=LEVELS[idx],n=p.n,teachers=cells.flatMap((v,i)=>v===1?[i]:[]),bad=new Set();teachers.forEach((a,k)=>teachers.slice(k+1).forEach(b=>{let ar=Math.floor(a/n),br=Math.floor(b/n),ac=a%n,bc=b%n;if(ar===br||ac===bc||p.regions[a]===p.regions[b]||(Math.abs(ar-br)<=1&&Math.abs(ac-bc)<=1)){bad.add(a);bad.add(b)}}));return bad}
 function time(){ $('#timer').textContent=String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
@@ -45,16 +42,15 @@ function render(persist=true){
   if(won&&!completed.includes(idx))completed.push(idx);
   if(won&&!wasWon&&(bestTimes[idx]===undefined||seconds<bestTimes[idx])){bestTimes[idx]=seconds;try{localStorage.setItem('teacher-best-times',JSON.stringify(bestTimes))}catch{}}
   $('#best-time').textContent=bestTimes[idx]===undefined?'--:--':clockText(bestTimes[idx]);
-  $('#score').textContent=roundScore();
-  $('#undo').disabled=history.length===0||failed||won;
   const hint=$('#hint');hint.hidden=!HINTS_ENABLED;hint.disabled=!HINTS_ENABLED||hintsUsed>=3||won||failed;hint.textContent=`☀ 提示（${3-hintsUsed}/3）`;
   renderLevelPicker();
   if(renderedLevel!==idx||board.children.length!==n*n){
     board.style.gridTemplateColumns=`repeat(${n},minmax(0,1fr))`;board.style.gridTemplateRows=`repeat(${n},minmax(0,1fr))`;
     board.replaceChildren();renderedValues=[];renderedBad=[];renderedLevel=idx;renderStats.boardBuilds++;
+    const palette=typeof BoardPalette==='undefined'?colors:BoardPalette.colorsFor(p,typeof location!=='undefined'&&new URLSearchParams(location.search).get('palette')==='v2');
     for(let i=0;i<n*n;i++){
       const b=document.createElement('button');b.type='button';b.dataset.index=i;
-      b.style.background=colors[p.regions[i]];b.style.setProperty?.('--region-color',colors[p.regions[i]]);
+      b.style.background=palette[p.regions[i]];b.style.setProperty?.('--region-color',palette[p.regions[i]]);
       b.onclick=e=>clickCell(i,e);b.ondblclick=e=>e.preventDefault();
       b.oncontextmenu=e=>{e.preventDefault();if(drag)return;clearTap();edit(i,2)};
       b.onkeydown=e=>{const delta={ArrowRight:1,ArrowLeft:-1,ArrowDown:n,ArrowUp:-n}[e.key];if(delta!==undefined){e.preventDefault();board.children[Math.max(0,Math.min(cells.length-1,i+delta))].focus({preventScroll:true})}};
@@ -67,7 +63,7 @@ function render(persist=true){
     if(renderedValues[i]!==v){
       b.textContent=v===2||v===3?'×':'';
       if(v===1){if(!b.teacherAvatar){const avatar=document.createElement('img');avatar.src='assets/teacher-pixel-avatar.png';avatar.alt='班導';avatar.className='teacher-avatar';avatar.draggable=false;b.teacherAvatar=avatar}b.append(b.teacherAvatar)}
-      b.setAttribute('aria-label',`第 ${Math.floor(i/n)+1} 行，第 ${i%n+1} 列，區域 ${p.regions[i]+1}：${v===1?'班導':v===3?'錯誤位置':v===2?'排除':'空白'}`);
+      b.setAttribute('aria-disabled',String(v===3));b.setAttribute('aria-label',`第 ${Math.floor(i/n)+1} 行，第 ${i%n+1} 列，區域 ${p.regions[i]+1}：${v===1?'班導':v===3?'錯誤位置':v===2?'排除':'空白'}`);
     }
     renderedValues[i]=v;renderedBad[i]=isBad;renderStats.cellUpdates++;
   });
@@ -82,17 +78,17 @@ function clearTap(){lastTap=null}
 function flushTap(){clearTap()}
 function clickCell(i,e){
   if(nativeTouchEnabled&&(e.pointerType==='touch'||e.sourceCapabilities?.firesTouchEvents))return;
-  if(won||failed||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;
+  if(won||failed||cells[i]===3||mistakeCells.has(i)||(e.detail!==0&&e.timeStamp<=suppressClickUntil))return;
   if(e.detail===0){flushTap();edit(i,e.shiftKey?1:2);return}
   const now=e.timeStamp;
-  if(lastTap&&lastTap.i===i&&now-lastTap.time<=300){const before=lastTap.before;clearTap();restoreCells(before);history.pop();edit(i,1);return}
+  if(lastTap&&lastTap.i===i&&now-lastTap.time<=300){const before=lastTap.before;clearTap();restoreCells(before);edit(i,1);return}
   clearTap();const before=snapshotCells();edit(i,2);lastTap={i,time:now,level:idx,before};
 }
 function edit(i,m){
-  if(won||failed||!Number.isInteger(i)||i<0||i>=cells.length)return;
+  if(won||failed||!Number.isInteger(i)||i<0||i>=cells.length||cells[i]===3||mistakeCells.has(i))return;
   const wrong=m===1&&cells[i]!==1&&LEVELS[idx].solution[Math.floor(i/LEVELS[idx].n)]!==i%LEVELS[idx].n;
   if(wrong&&cells[i]===3&&mistakeCells.has(i)){render();return;}
-  remember();crossingPasses[i]=0;
+  crossingPasses[i]=0;
   if(wrong){
     const firstMistake=!mistakeCells.has(i);mistakeCells.add(i);cells[i]=3;
     if(firstMistake)mistakes++;
@@ -102,13 +98,13 @@ function edit(i,m){
   }else{cells[i]=cells[i]===m?0:m;render();if(!won&&typeof playGameSound==='function')playGameSound(cells[i]===1?'teacher':'mark')}
   $('#board').children[i].focus({preventScroll:true});
 }
-function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;pickerGroup=null;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);history=[];seconds=0;won=false;render()}
-$('#undo').onclick=()=>{if(failed||won)return;clearTap();if(history.length){restoreCells(history.pop());render()}};$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(!HINTS_ENABLED||won||failed||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];remember();cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
+function load(i){if(!Number.isInteger(i)||!LEVELS[i])return;pickerGroup=null;clearTap();hintsUsed=0;mistakeCells=new Set();crossingPasses=[];failureShown=false;$('#failure-dialog').close();if(errorTimer!==null)clearTimeout(errorTimer);errorTimer=null;$('#error-feedback').hidden=true;hideCelebration();mistakes=0;failed=false;drag=null;suppressClickUntil=-1;lastTap=null;idx=i;cells=Array(LEVELS[i].n**2).fill(0);seconds=0;won=false;render()}
+$('#reset').onclick=()=>load(idx);function applyHint(){flushTap();if(!HINTS_ENABLED||won||failed||hintsUsed>=3)return;const p=LEVELS[idx],r=p.solution.findIndex((c,r)=>cells[r*p.n+c]!==1);if(r<0)return;hintsUsed++;const i=r*p.n+p.solution[r];cells[i]=1;crossingPasses[i]=0;render();if(!won)$('#message').textContent=`☀ 第 ${r+1} 行的班導找到位置了！剩餘提示 ${3-hintsUsed} 次。`};$('#hint').onclick=applyHint;$('#help').onclick=()=>$('#rules').showModal();$('#close').onclick=$('#start').onclick=()=>$('#rules').close();setInterval(()=>{if(!won&&!failed&&document.visibilityState==='visible'&&(typeof mobileGameIsActive==='undefined'||mobileGameIsActive())){seconds++;time();save()}},1000);if(!cells.length)cells=Array(LEVELS[idx].n**2).fill(0);render();if(restoredErrors&&!failed)$('#message').textContent=`💔 已核對舊進度：${restoredErrors} 位班導位置錯誤，已改為紅色 ×；犯錯 ${mistakes} / 3。`;celebrationReady=true;
 
 
 // Per-cell crossing rule: preserve an existing X once, clear it on its next stroke.
 function snapshotCells(){const state=[...cells];state.crossings=[...crossingPasses];return state}
-function restoreCells(state){cells=[...state];crossingPasses=state.crossings?[...state.crossings]:[]}
+function restoreCells(state){cells=[...state];mistakeCells.forEach(i=>cells[i]=3);crossingPasses=state.crossings?[...state.crossings]:[]}
 function paintExcluded(indices,visited=new Set()){
   let changed=false;
   for(const i of indices){
@@ -131,7 +127,7 @@ board.onpointerdown=e=>{
   const tile=e.target.closest('.cell');if(!tile)return;
   let geometry=null;const n=LEVELS[idx].n,first=board.children[0],next=board.children[1];
   if(first?.getBoundingClientRect&&next?.getBoundingClientRect){const r=first.getBoundingClientRect(),q=next.getBoundingClientRect();const pitch=q.x-r.x;if(Number.isFinite(r.x)&&Number.isFinite(r.y)&&Number.isFinite(pitch)&&pitch>0)geometry={x:r.x,y:r.y,pitch,n}}
-  drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:+tile.dataset.index,before:snapshotCells(),active:false,changed:false,visited:new Set(),geometry,nativeTouch:!!e.nativeTouch};
+  drag={id:e.pointerId,x:e.clientX,y:e.clientY,start:+tile.dataset.index,active:false,changed:false,visited:new Set(),geometry,nativeTouch:!!e.nativeTouch};
 };
 function pathIndex(x,y,d){
   if(d.geometry){const g=d.geometry,c=Math.floor((x-g.x)/g.pitch),r=Math.floor((y-g.y)/g.pitch);return c>=0&&r>=0&&c<g.n&&r<g.n?r*g.n+c:-1}
@@ -145,7 +141,7 @@ board.onpointermove=e=>{
   if(!d.active){clearTap();d.active=true;if(!d.nativeTouch)board.setPointerCapture(e.pointerId)}
   e.preventDefault();const indices=[d.start],step=d.geometry?Math.max(4,d.geometry.pitch/3):8,steps=Math.min(128,Math.max(1,Math.ceil(Math.hypot(dx,dy)/step)));
   for(let k=0;k<=steps;k++)indices.push(pathIndex(d.x+dx*k/steps,d.y+dy*k/steps,d));
-  if(paintExcluded(indices,d.visited)){if(!d.changed){remember(d.before);d.changed=true}render(false)}
+  if(paintExcluded(indices,d.visited)){d.changed=true;render(false)}
   d.x=e.clientX;d.y=e.clientY;
 };
 function finishDrag(e,cancelled=false){

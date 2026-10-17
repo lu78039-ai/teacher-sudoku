@@ -1,24 +1,17 @@
 # 尋找班導
 
-用觀察與推理，找出藏在色塊裡的班導。支援手機、平板、電腦與離線遊玩。
+觀察與推理，找出色塊裡的班導。手機、平板、電腦及離線遊玩皆可使用。
 
-## 怎麼玩
-
-- 每行、每列、每個色區各一位班導。
-- 彼此不能相鄰，包含斜角。
-- 點一下標記 ×，點兩下找班導；滑動可連續標記。
-- 三次犯錯結束，同一錯格不重複扣愛心。
-- 復原只撤回最新一步，愛心不退回。提示目前隱藏。
-- 每關保存最佳時間，重新挑戰可刷新紀錄。
-
-## 開啟遊戲
+- 每行、每列、每個色區各一位；彼此不相鄰，包含斜角。
+- 點一下標記 ×，點兩下找班導；滑動連續標記。一般白色 × 可清除。
+- 放錯會留下鎖定的紅色 × 並扣一顆愛心，三次犯錯結束。同格不重複扣。
+- 沒有復原與分數功能；重來重設本局。提示目前隱藏。
+- 自動保存進度與每關最佳時間。設定可開關離線音效與保持亮屏。
 
 正式網址：https://lu78039-ai.github.io/teacher-sudoku/dist/index.html
 
-本機執行 node server.cjs，再開啟 http://127.0.0.1:4173/teacher-sudoku/dist/index.html 。直接開 file:// 也能玩，但不能使用 PWA 離線快取與安裝。
+本機執行 node server.cjs，開啟 /teacher-sudoku/dist/index.html。直接開 file:// 能遊玩，但無法使用 PWA 安裝與離線快取。
 
-## 開發與部署
+V2 候選分支 feature/v2-ui：新 UI 與色盤驗收見 [V2-REVIEW.md](V2-REVIEW.md)。新色盤在 palette-test.html 或 index.html?palette=v2 預覽，待確認後才改預設；尚未部署或合併 main。
 
-執行 node scripts/audit-levels.cjs、node scripts/prepare-pwa.cjs、node verify-all.cjs。原始題目索引不可重新排列；顯示與晉級順序由 level-order.js 決定，以保留玩家進度與最佳時間。
-
-確認後才合併與部署完整 dist，保留原網址。PWA 驗收見 [PWA-INSTALL.md](PWA-INSTALL.md)，本次手機優化與新增推理題組見 [qa/mobile-v8/REPORT.md](qa/mobile-v8/REPORT.md)。
+驗證：node scripts/audit-levels.cjs、node scripts/prepare-pwa.cjs、node verify-all.cjs。原始題目索引不可重新排列，進度依內部索引保存。PWA 每次內容變更須重建並完整部署，詳見 [PWA-INSTALL.md](PWA-INSTALL.md)。
